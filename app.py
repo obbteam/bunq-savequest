@@ -234,7 +234,7 @@ class GoalSummaryWindow(QWidget):
 
 
 class ResultWindow(QWidget):
-    def __init__(self, main_app_ref, success: bool, save_per_month, suggested_days=None, goal_data=None):
+    def __init__(self, main_app_ref, success: bool, save_per_month, goal_data, suggested_days=None, goal_date=None):
         super().__init__()
         self.setWindowTitle("SaveQuest Result")
         self.setFixedSize(400, 700)
@@ -261,7 +261,7 @@ class ResultWindow(QWidget):
             layout.addWidget(proceed_btn)
         else:
             self.message.setText(
-                f"⚠️ The goal is not realistic.\nSuggested new end date is {goal_data}, which is in {suggested_days} days.\nThe average saving amount per month will be €{save_per_month}\nDo you agree?"
+                f"⚠️ The goal is not realistic.\nSuggested new end date is {goal_date}, which is in {suggested_days} days.\nThe average saving amount per month will be €{save_per_month}\nDo you agree?"
             )
             agree_btn = QPushButton("✅ Agree")
             disagree_btn = QPushButton("❌ Don't Agree")
@@ -433,16 +433,17 @@ class MainWindow(QMainWindow):
         # months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
         # monthly_goal = amount_val / months_available
 
-        # goal_data = {"name": name, "amount": amount, "date": date}
+        goal_data = {"name": name, "amount": amount, "date": date}
 
         result_json = transaction_promt(name, amount, date, income)
         if result_json["is_goal_realistic"]:
-            self.result_window = ResultWindow(self, success=True, goal_data=date,
+            self.result_window = ResultWindow(self, success=True, goal_date=date, goal_data=goal_data,
                                               save_per_month=result_json["estimated_monthly_savings"])
         else:
             self.result_window = ResultWindow(self, success=False,
                                               suggested_days=result_json["required_days_to_reach_goal"],
-                                              goal_data=result_json["recommended_completion_date"],
+                                              goal_data=goal_data,
+                                              goal_date=result_json["recommended_completion_date"],
                                               save_per_month=result_json["estimated_monthly_savings"])
 
         self.result_window.show()

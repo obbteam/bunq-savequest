@@ -2012,20 +2012,23 @@ def transaction_promt(goal_name, amount, due_date, income):
     if chunk.choices[0].delta.content:
       full_response += chunk.choices[0].delta.content
 
-  # ✅ Extract JSON from the response
   try:
-    # Sometimes model returns a code block with ```json
+    # Extract JSON block
     json_start = full_response.find('{')
     json_end = full_response.rfind('}') + 1
     json_text = full_response[json_start:json_end]
 
+    # Remove invalid JSON comments
+    import re
+    json_text = re.sub(r'//.*', '', json_text)
+    json_text = json_text.strip()
+
     result = json.loads(json_text)
     return result
+
 
   except Exception as e:
     print("❌ Failed to parse JSON:", e)
     print("🔎 Raw response:", full_response)
     return None
 
-transaction_promt("japan", "1000", "2027-05-05", "1000")
-#goal_promt(first_promt)
