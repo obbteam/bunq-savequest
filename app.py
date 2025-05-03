@@ -2,7 +2,7 @@ from PySide6.QtWidgets import (
     QApplication, QLabel, QLineEdit, QPushButton, QProgressBar,
     QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QMessageBox, QHBoxLayout
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
 import sys
 from datetime import datetime
 
@@ -269,9 +269,65 @@ class ResultWindow(QWidget):
             self.goal_data['amount'],
             self.goal_data['date']
         )
+    
+        # Create and show notification
+        self.notification = NotificationWidget(self.goal_window)
+        self.notification.show_notification("🎉 Goal created successfully!")
+        
         self.goal_window.show()
         self.close()
 
+class NotificationWidget(QLabel):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setStyleSheet("""
+            background-color: #59bd66;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        """)
+        self.setAlignment(Qt.AlignCenter)
+        self.setFixedHeight(50)
+        self.setMinimumWidth(250)
+        
+        # Set initial position off-screen
+        self.move(-300, 20)
+        
+        # Animation setup
+        self.animation = QPropertyAnimation(self, b"pos")
+        self.animation.setDuration(750)
+        self.animation.setEasingCurve(QEasingCurve.OutBack)
+        
+        # Timer to auto-hide
+        self.hide_timer = QTimer()
+        self.hide_timer.setSingleShot(True)
+        self.hide_timer.timeout.connect(self.hide_notification)
+
+    def show_notification(self, message, duration=3000):
+        """Show notification with animation"""
+        self.setText(message)
+        self.show()
+        
+        # Animate in
+        self.animation.setStartValue(QPoint(-300, 20))
+        self.animation.setEndValue(QPoint(75, 20))
+        self.animation.start()
+        
+        # Set auto-hide
+        self.hide_timer.start(duration)
+
+    def hide_notification(self):
+        """Hide notification with animation"""
+        self.animation.setStartValue(self.pos())
+        self.animation.setEndValue(QPoint(-300, 20))
+        self.animation.start()
+
+    def stop_and_hide(self):
+        """Immediately stop animation and hide"""
+        self.animation.stop()
+        self.hide()
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -367,10 +423,14 @@ class MainWindow(QMainWindow):
                                               goal_data=goal_data)
 
         self.result_window.show()
+
         self.hide()
 
 
 app = QApplication(sys.argv)
 window = MainWindow()
+
 window.show()
+notification = NotificationWidget(window)
+notification.show_notification("🎉 Goal created successfully!")
 app.exec()
