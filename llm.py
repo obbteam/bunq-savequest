@@ -1,3 +1,5 @@
+import json
+
 import requests
 import os
 
@@ -1920,14 +1922,82 @@ def goal_promt(first_promt, data_for_goal):
     if chunk.choices[0].delta.content is not None:
       print(chunk.choices[0].delta.content, end="")
 
-def transaction_promt(promt, data):
+def transaction_promt(goal_name, amount, due_date, income):
+  location = "Netherlands"
+  m_promt = f"""
+
+  today is 2025-05-02 (format: YYYY-MM-DD)
+  You are an AI financial coach
+
+  The user has the following savings goal:
+  - Goal: "{goal_name}" 
+  - Amount: {amount}€
+  - Target date: {due_date}
+  - Country: {location}
+  - Monthly income: {income}€
+
+  Netherlands: €1700
+
+  Germany: €1500
+
+  France: €1650
+
+  Belgium: €1550
+
+  Austria: €1450
+
+  Ireland: €1900
+
+  Denmark: €1750
+
+  Sweden: €1600
+
+  Finland: €1500
+
+  Spain: €1250
+
+  Portugal: €1150
+
+  Italy: €1350
+
+  Greece: €1000
+
+  Poland: €1000
+
+  Czechia: €1050
+
+  Tasks:
+
+  1. Calculate how many days remain until the target date  
+  2. Estimate the amount the user can realistically save each month , Use average monthly expenses in {location} to estimate how much the user can realistically save per month.  
+  Assume moderate spending , basically you just monthly income - average for this country = approximately how much you can save per month , but if the monthly income less then average just put 20% from monthly salary 
+
+  3. If the goal is realistic — return that  
+  4. If NOT realistic:
+     - Calculate how many **days** the user will need to reach the goal at that monthly savings rate  
+     - Suggest the exact **date** when the goal is realistically reachable
+
+  ---
+
+  Return result in strict JSON format:
+
+  ```json
+  {{
+  "is_goal_realistic": true or false,
+    "days_available": int,
+    "estimated_monthly_savings": float,
+    "required_days_to_reach_goal": int,               // only if goal is not realistic
+    "recommended_completion_date": "YYYY-MM-DD"       // only if goal is not realistic
+  }}
+  """
+
   client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
     api_key="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"
   )
   completion = client.chat.completions.create(
     model="nvidia/llama-3.3-nemotron-super-49b-v1",
-    messages=[{"role": "system", "content": promt + data}],
+    messages=[{"role": "system", "content": m_promt}],
     temperature=0.6,
     top_p=0.95,
     max_tokens=4096,
@@ -1936,9 +2006,26 @@ def transaction_promt(promt, data):
     stream=True
   )
 
+  # ✅ Collect the full response
+  full_response = ""
   for chunk in completion:
-    if chunk.choices[0].delta.content is not None:
-      print(chunk.choices[0].delta.content, end="")
+    if chunk.choices[0].delta.content:
+      full_response += chunk.choices[0].delta.content
 
-transaction_promt(promt, data)
-goal_promt(first_promt)
+  # ✅ Extract JSON from the response
+  try:
+    # Sometimes model returns a code block with ```json
+    json_start = full_response.find('{')
+    json_end = full_response.rfind('}') + 1
+    json_text = full_response[json_start:json_end]
+
+    result = json.loads(json_text)
+    return result
+
+  except Exception as e:
+    print("❌ Failed to parse JSON:", e)
+    print("🔎 Raw response:", full_response)
+    return None
+
+transaction_promt("japan", "1000", "2027-05-05", "1000")
+#goal_promt(first_promt)

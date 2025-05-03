@@ -5,6 +5,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
 import sys
 from datetime import datetime
+from llm import transaction_promt
 
 # 🔁 Shared stylesheet (applied to all windows)
 STYLESHEET = """
@@ -233,7 +234,7 @@ class GoalSummaryWindow(QWidget):
 
 
 class ResultWindow(QWidget):
-    def __init__(self, main_app_ref, success: bool, suggested_months=None, goal_data=None):
+    def __init__(self, main_app_ref, success: bool, save_per_month, suggested_days=None, goal_data=None):
         super().__init__()
         self.setWindowTitle("SaveQuest Result")
         self.setFixedSize(400, 700)
@@ -252,14 +253,14 @@ class ResultWindow(QWidget):
         layout.addWidget(self.message)
 
         if success:
-            self.message.setText("✅ Great! You can realistically save this amount by your due date.\nLet's start!")
+            self.message.setText(f"✅ Great! You can realistically save this amount by your due date, if you save €{save_per_month} per month.\nLet's start!")
             proceed_btn = QPushButton("🚀 Let's Start")
             proceed_btn.setObjectName("agreeButton")
             proceed_btn.clicked.connect(self.show_goal_screen)
             layout.addWidget(proceed_btn)
         else:
             self.message.setText(
-                f"⚠️ The goal is not realistic.\nSuggested new end date: in {suggested_months} months.\nDo you agree?"
+                f"⚠️ The goal is not realistic.\nSuggested new end date is {goal_data}, which is in {suggested_days} days.\nThe average saving amount per month will be €{save_per_month}\nDo you agree?"
             )
             agree_btn = QPushButton("✅ Agree")
             disagree_btn = QPushButton("❌ Don't Agree")
@@ -424,18 +425,19 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Date Error", "❌ Due date cannot be earlier than today.")
             return
 
-        today = datetime.today()
-        months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
-        monthly_goal = amount_val / months_available
+        #today = datetime.today()
+        #months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
+        #monthly_goal = amount_val / months_available
 
-        goal_data = {"name": name, "amount": amount, "date": date}
+        #goal_data = {"name": name, "amount": amount, "date": date}
 
-        if monthly_goal <= income_val * 0.3:
-            self.result_window = ResultWindow(self, success=True, goal_data=goal_data)
+        result_json = transaction_promt(name, amount, date, income)
+        if result_json["is_goal_realistic"]:
+            self.result_window = ResultWindow(self, success=True, goal_data=date, save_per_month=result_json["estimated_monthly_savings"])
         else:
-            suggested_months = int((amount_val / (income_val * 0.3)) + 1)
-            self.result_window = ResultWindow(self, success=False, suggested_months=suggested_months,
-                                              goal_data=goal_data)
+            self.result_window = ResultWindow(self, success=False, suggested_days=result_json["required_days_to_reach_goal"],
+                                              goal_data=result_json["recommended_completion_date"], save_per_month = result_json["estimated_monthly_savings"])
+
 
         self.result_window.show()
 
