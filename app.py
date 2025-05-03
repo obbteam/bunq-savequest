@@ -2,9 +2,10 @@ from PySide6.QtWidgets import (
     QApplication, QLabel, QLineEdit, QPushButton, QProgressBar,
     QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QMessageBox, QHBoxLayout
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
 import sys
 from datetime import datetime
+from llm import transaction_promt
 
 # 🔁 Shared stylesheet (applied to all windows)
 STYLESHEET = """
@@ -80,7 +81,7 @@ STYLESHEET = """
         background-color: #2ECC71;
         border-radius: 12px;
     }
-
+    
     QLabel#mainTitle {
     color: white;
     font-size: 24px;
@@ -233,7 +234,7 @@ class GoalSummaryWindow(QWidget):
 
 
 class ResultWindow(QWidget):
-    def __init__(self, main_app_ref, success: bool, suggested_months=None, goal_data=None):
+    def __init__(self, main_app_ref, success: bool, save_per_month, goal_data, suggested_days=None, goal_date=None):
         super().__init__()
         self.setWindowTitle("SaveQuest Result")
         self.setFixedSize(400, 700)
@@ -252,14 +253,15 @@ class ResultWindow(QWidget):
         layout.addWidget(self.message)
 
         if success:
-            self.message.setText("✅ Great! You can realistically save this amount by your due date.\nLet's start!")
+            self.message.setText(
+                f"✅ Great! You can realistically save this amount by your due date, if you save €{save_per_month} per month.\nLet's start!")
             proceed_btn = QPushButton("🚀 Let's Start")
             proceed_btn.setObjectName("agreeButton")
             proceed_btn.clicked.connect(self.show_goal_screen)
             layout.addWidget(proceed_btn)
         else:
             self.message.setText(
-                f"⚠️ The goal is not realistic.\nSuggested new end date: in {suggested_months} months.\nDo you agree?"
+                f"⚠️ The goal is not realistic.\nSuggested new end date is {goal_date}, which is in {suggested_days} days.\nThe average saving amount per month will be €{save_per_month}\nDo you agree?"
             )
             agree_btn = QPushButton("✅ Agree")
             disagree_btn = QPushButton("❌ Don't Agree")
@@ -282,10 +284,69 @@ class ResultWindow(QWidget):
             self.goal_data['amount'],
             self.goal_data['date']
         )
+
+
+        # Create and show notification
+        self.notification = NotificationWidget(self.goal_window)
+        self.notification.show_notification("🎉 Goal created successfully!")
+
         self.goal_window.show()
         QMessageBox.information(self, "Confirmed", "✅ Your goal has been accepted!")
 
         self.close()
+
+
+class NotificationWidget(QLabel):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setStyleSheet("""
+            background-color: #59bd66;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        """)
+        self.setAlignment(Qt.AlignCenter)
+        self.setFixedHeight(50)
+        self.setMinimumWidth(250)
+
+        # Set initial position off-screen
+        self.move(-300, 20)
+
+        # Animation setup
+        self.animation = QPropertyAnimation(self, b"pos")
+        self.animation.setDuration(750)
+        self.animation.setEasingCurve(QEasingCurve.OutBack)
+
+        # Timer to auto-hide
+        self.hide_timer = QTimer()
+        self.hide_timer.setSingleShot(True)
+        self.hide_timer.timeout.connect(self.hide_notification)
+
+    def show_notification(self, message, duration=3000):
+        """Show notification with animation"""
+        self.setText(message)
+        self.show()
+
+        # Animate in
+        self.animation.setStartValue(QPoint(-300, 20))
+        self.animation.setEndValue(QPoint(75, 20))
+        self.animation.start()
+
+        # Set auto-hide
+        self.hide_timer.start(duration)
+
+    def hide_notification(self):
+        """Hide notification with animation"""
+        self.animation.setStartValue(self.pos())
+        self.animation.setEndValue(QPoint(-300, 20))
+        self.animation.start()
+
+    def stop_and_hide(self):
+        """Immediately stop animation and hide"""
+        self.animation.stop()
+        self.hide()
 
 
 class MainWindow(QMainWindow):
@@ -368,24 +429,32 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Date Error", "❌ Due date cannot be earlier than today.")
             return
 
-        today = datetime.today()
-        months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
-        monthly_goal = amount_val / months_available
+        # today = datetime.today()
+        # months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
+        # monthly_goal = amount_val / months_available
 
         goal_data = {"name": name, "amount": amount, "date": date}
 
-        if monthly_goal <= income_val * 0.3:
-            self.result_window = ResultWindow(self, success=True, goal_data=goal_data)
+        result_json = transaction_promt(name, amount, date, income)
+        if result_json["is_goal_realistic"]:
+            self.result_window = ResultWindow(self, success=True, goal_date=date, goal_data=goal_data,
+                                              save_per_month=result_json["estimated_monthly_savings"])
         else:
-            suggested_months = int((amount_val / (income_val * 0.3)) + 1)
-            self.result_window = ResultWindow(self, success=False, suggested_months=suggested_months,
-                                              goal_data=goal_data)
+            self.result_window = ResultWindow(self, success=False,
+                                              suggested_days=result_json["required_days_to_reach_goal"],
+                                              goal_data=goal_data,
+                                              goal_date=result_json["recommended_completion_date"],
+                                              save_per_month=result_json["estimated_monthly_savings"])
 
         self.result_window.show()
+
         self.hide()
 
 
 app = QApplication(sys.argv)
 window = MainWindow()
+
 window.show()
+notification = NotificationWidget(window)
+notification.show_notification("🎉 Goal created successfully!")
 app.exec()
