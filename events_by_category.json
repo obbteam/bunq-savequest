@@ -1,0 +1,1304 @@
+{
+    "RENT_AND_UTILITIES": {
+        "event_list": [
+            {
+                "ID": 145978506,
+                "DATE": "2025-05-03 04:00:48.887642",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, more transaction for RENT_AND_UTILITIES, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978499,
+                "DATE": "2025-05-03 04:00:46.235378",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, more transaction for RENT_AND_UTILITIES, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -150.0
+    },
+    "FINANCE": {
+        "event_list": [
+            {
+                "ID": 145978469,
+                "DATE": "2025-05-03 03:59:35.811917",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978467,
+                "DATE": "2025-05-03 03:59:33.634219",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976649,
+                "DATE": "2025-05-03 03:11:20.922786",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976643,
+                "DATE": "2025-05-03 03:11:18.653912",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976639,
+                "DATE": "2025-05-03 03:11:16.476845",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976635,
+                "DATE": "2025-05-03 03:11:14.295717",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976631,
+                "DATE": "2025-05-03 03:11:12.090972",
+                "DESC": "CATEGORY:FINANCE, test transaction forFINANCE, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -157.5
+    },
+    "FOOD & DRINKS": {
+        "event_list": [
+            {
+                "ID": 145978465,
+                "DATE": "2025-05-03 03:59:31.444784",
+                "DESC": "CATEGORY:FOOD & DRINKS, test transaction forFOOD & DRINKS, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978463,
+                "DATE": "2025-05-03 03:59:28.606403",
+                "DESC": "CATEGORY:FOOD & DRINKS, test transaction forFOOD & DRINKS, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -150.0
+    },
+    "CASH": {
+        "event_list": [
+            {
+                "ID": 145978460,
+                "DATE": "2025-05-03 03:59:26.551962",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978457,
+                "DATE": "2025-05-03 03:59:24.458260",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976607,
+                "DATE": "2025-05-03 03:10:58.525242",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976603,
+                "DATE": "2025-05-03 03:10:56.246439",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976599,
+                "DATE": "2025-05-03 03:10:53.893001",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976595,
+                "DATE": "2025-05-03 03:10:51.080804",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976591,
+                "DATE": "2025-05-03 03:10:48.759189",
+                "DESC": "CATEGORY:CASH, test transaction forCASH, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -157.5
+    },
+    "TRAVEL": {
+        "event_list": [
+            {
+                "ID": 145978454,
+                "DATE": "2025-05-03 03:59:22.358443",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978452,
+                "DATE": "2025-05-03 03:59:20.112005",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976836,
+                "DATE": "2025-05-03 03:12:50.967995",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976834,
+                "DATE": "2025-05-03 03:12:48.912025",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976830,
+                "DATE": "2025-05-03 03:12:46.801822",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976826,
+                "DATE": "2025-05-03 03:12:44.641119",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976822,
+                "DATE": "2025-05-03 03:12:42.415352",
+                "DESC": "CATEGORY:TRAVEL, test transaction forTRAVEL, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -157.5
+    },
+    "FAMILY": {
+        "event_list": [
+            {
+                "ID": 145978450,
+                "DATE": "2025-05-03 03:59:18.116940",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:2",
+                "AMOUNT": "-100.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145978448,
+                "DATE": "2025-05-03 03:59:16.087839",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:1",
+                "AMOUNT": "-50.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976670,
+                "DATE": "2025-05-03 03:11:32.560115",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976665,
+                "DATE": "2025-05-03 03:11:30.471354",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976661,
+                "DATE": "2025-05-03 03:11:28.349765",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976657,
+                "DATE": "2025-05-03 03:11:25.956080",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976653,
+                "DATE": "2025-05-03 03:11:23.046292",
+                "DESC": "CATEGORY:FAMILY, test transaction forFAMILY, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -157.5
+    },
+    "HR": {
+        "event_list": [
+            {
+                "ID": 145977140,
+                "DATE": "2025-05-03 03:15:16.235485",
+                "DESC": "CATEGORY:HR, test transaction forHR, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977136,
+                "DATE": "2025-05-03 03:15:14.174424",
+                "DESC": "CATEGORY:HR, test transaction forHR, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977132,
+                "DATE": "2025-05-03 03:15:12.012477",
+                "DESC": "CATEGORY:HR, test transaction forHR, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977128,
+                "DATE": "2025-05-03 03:15:09.812565",
+                "DESC": "CATEGORY:HR, test transaction forHR, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -5.0
+    },
+    "PAYROLL": {
+        "event_list": [
+            {
+                "ID": 145977124,
+                "DATE": "2025-05-03 03:15:07.582065",
+                "DESC": "CATEGORY:PAYROLL, test transaction forPAYROLL, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977120,
+                "DATE": "2025-05-03 03:15:05.310509",
+                "DESC": "CATEGORY:PAYROLL, test transaction forPAYROLL, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977116,
+                "DATE": "2025-05-03 03:15:02.268468",
+                "DESC": "CATEGORY:PAYROLL, test transaction forPAYROLL, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977112,
+                "DATE": "2025-05-03 03:14:59.865281",
+                "DESC": "CATEGORY:PAYROLL, test transaction forPAYROLL, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977108,
+                "DATE": "2025-05-03 03:14:57.678805",
+                "DESC": "CATEGORY:PAYROLL, test transaction forPAYROLL, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "GIFTS": {
+        "event_list": [
+            {
+                "ID": 145977104,
+                "DATE": "2025-05-03 03:14:55.471210",
+                "DESC": "CATEGORY:GIFTS, test transaction forGIFTS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977100,
+                "DATE": "2025-05-03 03:14:53.157380",
+                "DESC": "CATEGORY:GIFTS, test transaction forGIFTS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977096,
+                "DATE": "2025-05-03 03:14:50.858005",
+                "DESC": "CATEGORY:GIFTS, test transaction forGIFTS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977092,
+                "DATE": "2025-05-03 03:14:48.588734",
+                "DESC": "CATEGORY:GIFTS, test transaction forGIFTS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977088,
+                "DATE": "2025-05-03 03:14:46.418963",
+                "DESC": "CATEGORY:GIFTS, test transaction forGIFTS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "SPORTS": {
+        "event_list": [
+            {
+                "ID": 145977084,
+                "DATE": "2025-05-03 03:14:44.308637",
+                "DESC": "CATEGORY:SPORTS, test transaction forSPORTS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977080,
+                "DATE": "2025-05-03 03:14:42.155777",
+                "DESC": "CATEGORY:SPORTS, test transaction forSPORTS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977076,
+                "DATE": "2025-05-03 03:14:39.725858",
+                "DESC": "CATEGORY:SPORTS, test transaction forSPORTS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977072,
+                "DATE": "2025-05-03 03:14:37.578162",
+                "DESC": "CATEGORY:SPORTS, test transaction forSPORTS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977068,
+                "DATE": "2025-05-03 03:14:35.478276",
+                "DESC": "CATEGORY:SPORTS, test transaction forSPORTS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "CLOTHING": {
+        "event_list": [
+            {
+                "ID": 145977062,
+                "DATE": "2025-05-03 03:14:33.359623",
+                "DESC": "CATEGORY:CLOTHING, test transaction forCLOTHING, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977058,
+                "DATE": "2025-05-03 03:14:31.224509",
+                "DESC": "CATEGORY:CLOTHING, test transaction forCLOTHING, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977052,
+                "DATE": "2025-05-03 03:14:29.045085",
+                "DESC": "CATEGORY:CLOTHING, test transaction forCLOTHING, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977048,
+                "DATE": "2025-05-03 03:14:26.861477",
+                "DESC": "CATEGORY:CLOTHING, test transaction forCLOTHING, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977044,
+                "DATE": "2025-05-03 03:14:24.672625",
+                "DESC": "CATEGORY:CLOTHING, test transaction forCLOTHING, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "PETS": {
+        "event_list": [
+            {
+                "ID": 145977038,
+                "DATE": "2025-05-03 03:14:22.413641",
+                "DESC": "CATEGORY:PETS, test transaction forPETS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977034,
+                "DATE": "2025-05-03 03:14:20.152874",
+                "DESC": "CATEGORY:PETS, test transaction forPETS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977030,
+                "DATE": "2025-05-03 03:14:17.950562",
+                "DESC": "CATEGORY:PETS, test transaction forPETS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977026,
+                "DATE": "2025-05-03 03:14:15.779126",
+                "DESC": "CATEGORY:PETS, test transaction forPETS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977022,
+                "DATE": "2025-05-03 03:14:13.587142",
+                "DESC": "CATEGORY:PETS, test transaction forPETS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "HEALTHCARE": {
+        "event_list": [
+            {
+                "ID": 145977016,
+                "DATE": "2025-05-03 03:14:11.303238",
+                "DESC": "CATEGORY:HEALTHCARE, test transaction forHEALTHCARE, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977013,
+                "DATE": "2025-05-03 03:14:09.044676",
+                "DESC": "CATEGORY:HEALTHCARE, test transaction forHEALTHCARE, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977009,
+                "DATE": "2025-05-03 03:14:06.936441",
+                "DESC": "CATEGORY:HEALTHCARE, test transaction forHEALTHCARE, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145977005,
+                "DATE": "2025-05-03 03:14:04.740559",
+                "DESC": "CATEGORY:HEALTHCARE, test transaction forHEALTHCARE, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976997,
+                "DATE": "2025-05-03 03:14:01.475112",
+                "DESC": "CATEGORY:HEALTHCARE, test transaction forHEALTHCARE, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "CULTURE": {
+        "event_list": [
+            {
+                "ID": 145976989,
+                "DATE": "2025-05-03 03:13:59.310527",
+                "DESC": "CATEGORY:CULTURE, test transaction forCULTURE, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976985,
+                "DATE": "2025-05-03 03:13:57.281020",
+                "DESC": "CATEGORY:CULTURE, test transaction forCULTURE, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976981,
+                "DATE": "2025-05-03 03:13:55.150325",
+                "DESC": "CATEGORY:CULTURE, test transaction forCULTURE, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976977,
+                "DATE": "2025-05-03 03:13:52.928138",
+                "DESC": "CATEGORY:CULTURE, test transaction forCULTURE, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976973,
+                "DATE": "2025-05-03 03:13:50.675494",
+                "DESC": "CATEGORY:CULTURE, test transaction forCULTURE, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "INVESTMENTS": {
+        "event_list": [
+            {
+                "ID": 145976969,
+                "DATE": "2025-05-03 03:13:48.488773",
+                "DESC": "CATEGORY:INVESTMENTS, test transaction forINVESTMENTS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976957,
+                "DATE": "2025-05-03 03:13:46.244279",
+                "DESC": "CATEGORY:INVESTMENTS, test transaction forINVESTMENTS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976953,
+                "DATE": "2025-05-03 03:13:43.992774",
+                "DESC": "CATEGORY:INVESTMENTS, test transaction forINVESTMENTS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976947,
+                "DATE": "2025-05-03 03:13:41.893819",
+                "DESC": "CATEGORY:INVESTMENTS, test transaction forINVESTMENTS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976943,
+                "DATE": "2025-05-03 03:13:39.696982",
+                "DESC": "CATEGORY:INVESTMENTS, test transaction forINVESTMENTS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "ELECTRONICS": {
+        "event_list": [
+            {
+                "ID": 145976939,
+                "DATE": "2025-05-03 03:13:37.356542",
+                "DESC": "CATEGORY:ELECTRONICS, test transaction forELECTRONICS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976935,
+                "DATE": "2025-05-03 03:13:35.141088",
+                "DESC": "CATEGORY:ELECTRONICS, test transaction forELECTRONICS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976931,
+                "DATE": "2025-05-03 03:13:32.826972",
+                "DESC": "CATEGORY:ELECTRONICS, test transaction forELECTRONICS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976927,
+                "DATE": "2025-05-03 03:13:29.945949",
+                "DESC": "CATEGORY:ELECTRONICS, test transaction forELECTRONICS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976923,
+                "DATE": "2025-05-03 03:13:27.716565",
+                "DESC": "CATEGORY:ELECTRONICS, test transaction forELECTRONICS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "UNCATEGORIZED": {
+        "event_list": [
+            {
+                "ID": 145976919,
+                "DATE": "2025-05-03 03:13:25.459432",
+                "DESC": "CATEGORY:UNCATEGORIZED, test transaction forUNCATEGORIZED, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976913,
+                "DATE": "2025-05-03 03:13:23.293864",
+                "DESC": "CATEGORY:UNCATEGORIZED, test transaction forUNCATEGORIZED, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976908,
+                "DATE": "2025-05-03 03:13:20.963842",
+                "DESC": "CATEGORY:UNCATEGORIZED, test transaction forUNCATEGORIZED, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976898,
+                "DATE": "2025-05-03 03:13:18.828080",
+                "DESC": "CATEGORY:UNCATEGORIZED, test transaction forUNCATEGORIZED, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976884,
+                "DATE": "2025-05-03 03:13:16.502551",
+                "DESC": "CATEGORY:UNCATEGORIZED, test transaction forUNCATEGORIZED, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "CAR_EXPENSES": {
+        "event_list": [
+            {
+                "ID": 145976880,
+                "DATE": "2025-05-03 03:13:14.306882",
+                "DESC": "CATEGORY:CAR_EXPENSES, test transaction forCAR_EXPENSES, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976876,
+                "DATE": "2025-05-03 03:13:12.075162",
+                "DESC": "CATEGORY:CAR_EXPENSES, test transaction forCAR_EXPENSES, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976870,
+                "DATE": "2025-05-03 03:13:09.914255",
+                "DESC": "CATEGORY:CAR_EXPENSES, test transaction forCAR_EXPENSES, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976866,
+                "DATE": "2025-05-03 03:13:07.740203",
+                "DESC": "CATEGORY:CAR_EXPENSES, test transaction forCAR_EXPENSES, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976862,
+                "DATE": "2025-05-03 03:13:05.391477",
+                "DESC": "CATEGORY:CAR_EXPENSES, test transaction forCAR_EXPENSES, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "BUSINESS_EXPENSES": {
+        "event_list": [
+            {
+                "ID": 145976858,
+                "DATE": "2025-05-03 03:13:03.193492",
+                "DESC": "CATEGORY:BUSINESS_EXPENSES, test transaction forBUSINESS_EXPENSES, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976854,
+                "DATE": "2025-05-03 03:12:59.725293",
+                "DESC": "CATEGORY:BUSINESS_EXPENSES, test transaction forBUSINESS_EXPENSES, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976850,
+                "DATE": "2025-05-03 03:12:57.613744",
+                "DESC": "CATEGORY:BUSINESS_EXPENSES, test transaction forBUSINESS_EXPENSES, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976846,
+                "DATE": "2025-05-03 03:12:55.415406",
+                "DESC": "CATEGORY:BUSINESS_EXPENSES, test transaction forBUSINESS_EXPENSES, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976840,
+                "DATE": "2025-05-03 03:12:53.166440",
+                "DESC": "CATEGORY:BUSINESS_EXPENSES, test transaction forBUSINESS_EXPENSES, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "HOUSEHOLD_EXPENSES": {
+        "event_list": [
+            {
+                "ID": 145976818,
+                "DATE": "2025-05-03 03:12:40.282542",
+                "DESC": "CATEGORY:HOUSEHOLD_EXPENSES, test transaction forHOUSEHOLD_EXPENSES, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976814,
+                "DATE": "2025-05-03 03:12:38.140870",
+                "DESC": "CATEGORY:HOUSEHOLD_EXPENSES, test transaction forHOUSEHOLD_EXPENSES, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976810,
+                "DATE": "2025-05-03 03:12:35.910176",
+                "DESC": "CATEGORY:HOUSEHOLD_EXPENSES, test transaction forHOUSEHOLD_EXPENSES, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976806,
+                "DATE": "2025-05-03 03:12:33.728089",
+                "DESC": "CATEGORY:HOUSEHOLD_EXPENSES, test transaction forHOUSEHOLD_EXPENSES, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976802,
+                "DATE": "2025-05-03 03:12:31.429386",
+                "DESC": "CATEGORY:HOUSEHOLD_EXPENSES, test transaction forHOUSEHOLD_EXPENSES, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "PERSONAL_CARE": {
+        "event_list": [
+            {
+                "ID": 145976797,
+                "DATE": "2025-05-03 03:12:29.204562",
+                "DESC": "CATEGORY:PERSONAL_CARE, test transaction forPERSONAL_CARE, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976793,
+                "DATE": "2025-05-03 03:12:26.927270",
+                "DESC": "CATEGORY:PERSONAL_CARE, test transaction forPERSONAL_CARE, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976789,
+                "DATE": "2025-05-03 03:12:24.070761",
+                "DESC": "CATEGORY:PERSONAL_CARE, test transaction forPERSONAL_CARE, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976785,
+                "DATE": "2025-05-03 03:12:21.973179",
+                "DESC": "CATEGORY:PERSONAL_CARE, test transaction forPERSONAL_CARE, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976779,
+                "DATE": "2025-05-03 03:12:19.741214",
+                "DESC": "CATEGORY:PERSONAL_CARE, test transaction forPERSONAL_CARE, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "GROCERIES": {
+        "event_list": [
+            {
+                "ID": 145976775,
+                "DATE": "2025-05-03 03:12:17.590041",
+                "DESC": "CATEGORY:GROCERIES, test transaction forGROCERIES, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976771,
+                "DATE": "2025-05-03 03:12:15.513699",
+                "DESC": "CATEGORY:GROCERIES, test transaction forGROCERIES, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976767,
+                "DATE": "2025-05-03 03:12:13.327194",
+                "DESC": "CATEGORY:GROCERIES, test transaction forGROCERIES, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976763,
+                "DATE": "2025-05-03 03:12:11.193464",
+                "DESC": "CATEGORY:GROCERIES, test transaction forGROCERIES, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976759,
+                "DATE": "2025-05-03 03:12:09.009520",
+                "DESC": "CATEGORY:GROCERIES, test transaction forGROCERIES, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "FOOD_AND_DRINK": {
+        "event_list": [
+            {
+                "ID": 145976755,
+                "DATE": "2025-05-03 03:12:06.866694",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, test transaction forFOOD_AND_DRINK, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976751,
+                "DATE": "2025-05-03 03:12:04.626457",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, test transaction forFOOD_AND_DRINK, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976747,
+                "DATE": "2025-05-03 03:12:01.979393",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, test transaction forFOOD_AND_DRINK, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976741,
+                "DATE": "2025-05-03 03:11:59.447869",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, test transaction forFOOD_AND_DRINK, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976736,
+                "DATE": "2025-05-03 03:11:57.371718",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, test transaction forFOOD_AND_DRINK, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "ENTERTAINMENT": {
+        "event_list": [
+            {
+                "ID": 145976719,
+                "DATE": "2025-05-03 03:11:54.542823",
+                "DESC": "CATEGORY:ENTERTAINMENT, test transaction forENTERTAINMENT, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976710,
+                "DATE": "2025-05-03 03:11:52.474345",
+                "DESC": "CATEGORY:ENTERTAINMENT, test transaction forENTERTAINMENT, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976706,
+                "DATE": "2025-05-03 03:11:50.377609",
+                "DESC": "CATEGORY:ENTERTAINMENT, test transaction forENTERTAINMENT, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976702,
+                "DATE": "2025-05-03 03:11:48.279380",
+                "DESC": "CATEGORY:ENTERTAINMENT, test transaction forENTERTAINMENT, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976698,
+                "DATE": "2025-05-03 03:11:46.019998",
+                "DESC": "CATEGORY:ENTERTAINMENT, test transaction forENTERTAINMENT, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "SHOPPING": {
+        "event_list": [
+            {
+                "ID": 145976694,
+                "DATE": "2025-05-03 03:11:43.832897",
+                "DESC": "CATEGORY:SHOPPING, test transaction forSHOPPING, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976690,
+                "DATE": "2025-05-03 03:11:41.677999",
+                "DESC": "CATEGORY:SHOPPING, test transaction forSHOPPING, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976683,
+                "DATE": "2025-05-03 03:11:39.379903",
+                "DESC": "CATEGORY:SHOPPING, test transaction forSHOPPING, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976679,
+                "DATE": "2025-05-03 03:11:37.199071",
+                "DESC": "CATEGORY:SHOPPING, test transaction forSHOPPING, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976675,
+                "DATE": "2025-05-03 03:11:34.882520",
+                "DESC": "CATEGORY:SHOPPING, test transaction forSHOPPING, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "SAVINGS": {
+        "event_list": [
+            {
+                "ID": 145976627,
+                "DATE": "2025-05-03 03:11:09.876517",
+                "DESC": "CATEGORY:SAVINGS, test transaction forSAVINGS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976624,
+                "DATE": "2025-05-03 03:11:07.667263",
+                "DESC": "CATEGORY:SAVINGS, test transaction forSAVINGS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976621,
+                "DATE": "2025-05-03 03:11:05.459315",
+                "DESC": "CATEGORY:SAVINGS, test transaction forSAVINGS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976615,
+                "DATE": "2025-05-03 03:11:03.175687",
+                "DESC": "CATEGORY:SAVINGS, test transaction forSAVINGS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976611,
+                "DATE": "2025-05-03 03:11:00.792062",
+                "DESC": "CATEGORY:SAVINGS, test transaction forSAVINGS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "SUBSCRIPTIONS": {
+        "event_list": [
+            {
+                "ID": 145976586,
+                "DATE": "2025-05-03 03:10:46.447514",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, test transaction forSUBSCRIPTIONS, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976583,
+                "DATE": "2025-05-03 03:10:44.320680",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, test transaction forSUBSCRIPTIONS, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976577,
+                "DATE": "2025-05-03 03:10:42.168123",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, test transaction forSUBSCRIPTIONS, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976570,
+                "DATE": "2025-05-03 03:10:39.658804",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, test transaction forSUBSCRIPTIONS, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976564,
+                "DATE": "2025-05-03 03:10:37.504788",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, test transaction forSUBSCRIPTIONS, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "GENERAL": {
+        "event_list": [
+            {
+                "ID": 145976560,
+                "DATE": "2025-05-03 03:10:35.341546",
+                "DESC": "CATEGORY:GENERAL, test transaction forGENERAL, number:4",
+                "AMOUNT": "-2.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976554,
+                "DATE": "2025-05-03 03:10:32.621513",
+                "DESC": "CATEGORY:GENERAL, test transaction forGENERAL, number:3",
+                "AMOUNT": "-2.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976548,
+                "DATE": "2025-05-03 03:10:30.397121",
+                "DESC": "CATEGORY:GENERAL, test transaction forGENERAL, number:2",
+                "AMOUNT": "-1.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976534,
+                "DATE": "2025-05-03 03:10:28.263052",
+                "DESC": "CATEGORY:GENERAL, test transaction forGENERAL, number:1",
+                "AMOUNT": "-1.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145976522,
+                "DATE": "2025-05-03 03:10:25.468316",
+                "DESC": "CATEGORY:GENERAL, test transaction forGENERAL, number:0",
+                "AMOUNT": "-0.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -7.5
+    },
+    "invalid": {
+        "event_list": [
+            {
+                "ID": 145976494,
+                "DATE": "2025-05-03 03:09:17.527688",
+                "DESC": "test description SCT",
+                "AMOUNT": "10000.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": 10000.0
+    },
+    "INCOME": {
+        "event_list": [
+            {
+                "ID": 145975774,
+                "DATE": "2025-05-03 02:50:25.927051",
+                "DESC": "4 nuggets",
+                "AMOUNT": "99.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 145975574,
+                "DATE": "2025-05-03 02:45:25.713580",
+                "DESC": "4 nuggets",
+                "AMOUNT": "500.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": 599.0
+    }
+}

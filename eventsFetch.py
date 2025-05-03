@@ -64,14 +64,12 @@ def fetchEvents():
     'User-Agent': 'postman',
     'X-Bunq-Language': 'en_US',
     'X-Bunq-Region': 'nl_NL',
-    'X-Bunq-Client-Request-Id': '6M7MfZ536OlX5i8s9a-p',
+    'X-Bunq-Client-Request-Id': 'X4py9CcDP13MlQ7w56L2',
     'X-Bunq-Geolocation': '0 0 0 0 000',
-    'X-Bunq-Client-Authentication': '382b71ab621b04b54626d4ed133c6ae9686e56f103a88ff8781880be7ccc41b8',
-    'X-Bunq-Client-Signature': 'VnS3Rb6ydNPqr2f0IMk0H2KYzncvhnzD3wT8gr18al2eYsZomeQEHOdlxdQU+j8fd6c8h40WKRvI7e2rWgGG3wXwYw8hgufF5CsbKT0udO31NAy3/oUq2PiZWqLsXc3XujCxyBgyKWb278OWOBMo9f1YheBgue1zHrhfX/NxuMEKEWidFSq6Sg8dz7/NFGR5Y27Jpl1ID3QpUQo0UEh2Iq4kNpnF41U+KYH9dvysApZqoDC4DRCt3rkyAdCUsAdX5Ts1p3HwFfourmoEXza03Q7YMOv3cYxFJN+tj7uQPjOG3K9SKRYfgPaQEveQnpXdJA+kHR/p5u+lRj/ypZQg2g=='
+    'X-Bunq-Client-Authentication': 'aa37199c853288faa7716ee4668b7d6c34b1c479e37a565853657672fb06e7e3',
+    'X-Bunq-Client-Signature': 'KvLNmlJV0fQO0LKi1nvdDZ1n4VW9iREMlGAys5AHSd+ORK4GCLVj413iWBAKGr/+cjunN9csCpIYZy5z7L3AHNcaMxlT3cq8N6EkY97LR1cgQodcSS7Tpg75i0avLENM9331KgtY0XLMfNmOv54LkqD3SnKbbNx32LgfkRzk1XqF3/cfTgLSsJ8yil5+W8D83jAqC7edDb1IJ9aYOADCl/Ghn/UMpYJFnOJOj0IwZVdLBWiUymjkk+rYPIGottorTeyxJDOiqZ2xEzj9xcxigq+71lXmpbV0j+HCNSXMYyAiqygoutGk9MkAOa0EPB1EfKeayt0PxYGAfpMfB9htSg=='
     }
-    conn.request("GET", "/v1/user/1879655/event", payload, headers)
-
-
+    conn.request("GET", "/v1/user/1882847/event?count=200", payload, headers)
     res = conn.getresponse()
     data = res.read()
     response = json.loads(data.decode("utf-8"))
@@ -80,12 +78,14 @@ def fetchEvents():
 
     if "Response" in response:
         for event in response["Response"]:
-    
 
             if 'object' in event['Event']:
                 event_object = event['Event']['object']
-                if 'RequestInquiry' in event_object and event_object["RequestInquiry"]["status"] == "FINALIZED":
+
+
+                if ('RequestInquiry' in event_object) and (event["Event"]["status"] == "FINALIZED" or "ACCEPTED"):
                     request_inquiry = event_object['RequestInquiry']
+                    
 
                     event_entry = {
                         "ID": event["Event"]["id"],
@@ -96,15 +96,23 @@ def fetchEvents():
                         "CURRENCY": request_inquiry["amount_responded"]["currency"]
                     }
                     if "INCOME" not in events_by_category:
-                        events_by_category["INCOME"] = []
+                        events_by_category["INCOME"] = {
+                            "event_list": [],
+                            "total": 0.0
+                        }
 
-                    events_by_category["INCOME"].append(event_entry)
+                    events_by_category["INCOME"]["event_list"].append(event_entry)
+                    events_by_category["INCOME"]["total"] += float(request_inquiry["amount_responded"]["value"])
 
-                elif 'Payment' in event_object:
+                elif ('Payment' in event_object) and (event["Event"]["status"] == "FINALIZED" or "ACCEPTED"):
+                    print("payment valid")
                     categoryName = event_object["Payment"]["description"]
-                    start = categoryName.index("CATEGORY:") + len("CATEGORY:")
-                    end = categoryName.find(",", start)
-                    categoryName = categoryName[start:end].strip()
+                    try:
+                        start = categoryName.index("CATEGORY:") + len("CATEGORY:")
+                        end = categoryName.find(",", start)
+                        categoryName = categoryName[start:end].strip()
+                    except:
+                        categoryName = "invalid"
 
                     event_entry = {
                         "ID": event["Event"]["id"],
@@ -115,13 +123,23 @@ def fetchEvents():
                         "CURRENCY": event_object["Payment"]["amount"]['currency']
                     }
                     if categoryName not in events_by_category:
-                        events_by_category[categoryName] = []
+                        events_by_category[categoryName] = {
+                            "event_list": [],
+                            "total": 0.0
+                        }
 
-                    events_by_category[categoryName].append(event_entry)
+                    #ASSUMING EURO USAGE
+                    events_by_category[categoryName]["event_list"].append(event_entry)
+                    events_by_category[categoryName]["total"] += float(event_object["Payment"]["amount"]['value'])
+
             print("\n---\n")
+        else:
+            print("no object found")
     else:
         print("No events found.")
-    print(events_by_category)
+
+    with open("events_by_category.json", "w", encoding="utf-8") as f:
+        json.dump(events_by_category, f, ensure_ascii=False, indent=4)
 
 #createPayment(Category.UTILITIES.value, 50, "car maintenance")
 
@@ -164,6 +182,13 @@ def analyze_events(events):
 
 fetchEvents()
 
-for category in Category:
-    for i in range(5):
-        createPayment(category.value, (i+1)*0.5, f"test transaction for{category.value}, number:{i}")
+class myCategories(Enum):
+    GENERAL = "FAMILY"
+    SUBSCRIPTIONS = "TRAVEL"
+    CASH = "CASH"
+    SAVINGS = "FOOD & DRINKS"
+    FINANCE = "FINANCE"
+
+
+# for i in range(1,3):
+#     createPayment("RENT_AND_UTILITIES", i*50, f"more transaction for RENT_AND_UTILITIES, number:{i}")
