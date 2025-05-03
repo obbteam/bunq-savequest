@@ -80,7 +80,7 @@ STYLESHEET = """
         background-color: #2ECC71;
         border-radius: 12px;
     }
-    
+
     QLabel#mainTitle {
     color: white;
     font-size: 24px;
@@ -88,36 +88,37 @@ STYLESHEET = """
     margin-top: 12px;
     margin-bottom: 12px;
     }
-    
+
     QLabel#title {
     font-size: 24px;
     font-weight: bold;
     color: white;
     }
-    
+
     QLabel#sectionTitle {
         color: #AAAAAA;
         font-size: 16px;
         font-weight: bold;
     }
-    
+
     QLabel#infoText {
         font-size: 16px;
         color: white;
     }
-    
+
     QLabel#saved {
         color: #2ECC71;
         font-size: 18px;
         font-weight: bold;
     }
-    
+
     QWidget#card {
         background-color: #1E1E1E;
         border-radius: 16px;
     }
 
 """
+
 
 class GoalSummaryWindow(QWidget):
     def __init__(self, goal_name, amount, due_date):
@@ -229,7 +230,6 @@ class GoalSummaryWindow(QWidget):
 
         container.setLayout(layout)
         return container
-
 
 
 class ResultWindow(QWidget):
