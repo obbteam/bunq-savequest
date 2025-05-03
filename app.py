@@ -3,7 +3,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QMessageBox, QHBoxLayout
 )
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
-import sys
+import sys, os, json
 from datetime import datetime
 from llm import transaction_promt
 
@@ -434,6 +434,7 @@ class MainWindow(QMainWindow):
         # monthly_goal = amount_val / months_available
 
         goal_data = {"name": name, "amount": amount, "date": date}
+        goal_data.save("SavedGoal.json")
 
         result_json = transaction_promt(name, amount, date, income)
         if result_json["is_goal_realistic"]:
@@ -452,8 +453,16 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
-window = MainWindow()
-
+if not os.path.exists('SavedGoal.json'):
+    window = MainWindow()
+else:
+    with open('SavedGoal.json', 'r') as file:
+        Data = json.load(file)
+    window = GoalSummaryWindow(
+            Data['name'],
+            Data['amount'],
+            Data['date']
+        )
 window.show()
 notification = NotificationWidget(window)
 notification.show_notification("🎉 Goal created successfully!")
