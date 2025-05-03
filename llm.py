@@ -227,7 +227,7 @@ data_for_goal = """
 - Monthly income: 1000€
 """
 
-input_file = open("io_files/structured_sample_3mo.json")
+input_file = open("io_files/structured_sample_3mo.json", "r")
 
 data = json.dumps(json.load(input_file))
 
