@@ -5,7 +5,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
 import sys, os, json
 from datetime import datetime
-from llm import transaction_promt
+from llm import transaction_promt, goal_promt
 
 # 🔁 Shared stylesheet (applied to all windows)
 STYLESHEET = """
@@ -279,6 +279,7 @@ class ResultWindow(QWidget):
         self.close()
 
     def show_goal_screen(self):
+        result_json = goal_promt()
         self.goal_window = GoalSummaryWindow(
             self.goal_data['name'],
             self.goal_data['amount'],
@@ -291,8 +292,6 @@ class ResultWindow(QWidget):
         self.notification.show_notification("🎉 Goal created successfully!")
 
         self.goal_window.show()
-        QMessageBox.information(self, "Confirmed", "✅ Your goal has been accepted!")
-
         self.close()
 
 
@@ -429,15 +428,8 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Date Error", "❌ Due date cannot be earlier than today.")
             return
 
-        # today = datetime.today()
-        # months_available = max((due_date.year - today.year) * 12 + due_date.month - today.month, 1)
-        # monthly_goal = amount_val / months_available
 
         goal_data = {"name": name, "amount": amount, "date": date}
-        goal_data.update({"location":"NL"})
-        with open('SavedGoal.json', 'w') as f:
-            json.dump(goal_data, f)
-            goal_data.pop("location")
 
         result_json = transaction_promt(name, amount, date, income)
         if result_json["is_goal_realistic"]:

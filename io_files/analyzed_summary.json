@@ -84,14 +84,14 @@
       "reward": {
         "xp": 150,
         "savings_euro": 50.00,
-        "bonus": "Japanese Cookbook"
+        "bonus": "Japanese Cooking Recipe Pack"
       },
       "why": "Savor the savings for sashimi in Japan!"
     }
   ],
   "savings_projection": {
-    "potential_monthly_savings": 285.09,
-    "note": "This amount is estimated based on completing all current challenges and addressing overspending."
+    "potential_monthly_savings": 250.09,
+    "note": "This amount is estimated based on completing all current challenges."
   },
-  "motivation": "You're €285 closer to Tokyo with just one month of smart moves!"
+  "motivation": "You're €250 closer to Tokyo with just 3 challenges!"
 }

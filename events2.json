@@ -1,0 +1,712 @@
+{
+    "INCOME": {
+        "event_list": [
+            {
+                "ID": 500000004,
+                "DATE": "2025-03-03 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 4",
+                "AMOUNT": "66.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000000,
+                "DATE": "2025-03-05 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 0",
+                "AMOUNT": "65.01",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000010,
+                "DATE": "2025-03-06 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 10",
+                "AMOUNT": "97.32",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000008,
+                "DATE": "2025-03-07 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 8",
+                "AMOUNT": "58.62",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000006,
+                "DATE": "2025-03-09 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 6",
+                "AMOUNT": "55.25",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000005,
+                "DATE": "2025-03-16 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 5",
+                "AMOUNT": "79.93",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000002,
+                "DATE": "2025-03-17 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 2",
+                "AMOUNT": "51.87",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000014,
+                "DATE": "2025-03-17 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 14",
+                "AMOUNT": "103.28",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000001,
+                "DATE": "2025-03-25 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 1",
+                "AMOUNT": "116.88",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000016,
+                "DATE": "2025-03-25 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 16",
+                "AMOUNT": "51.75",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000013,
+                "DATE": "2025-04-01 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 13",
+                "AMOUNT": "63.81",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000007,
+                "DATE": "2025-04-10 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 7",
+                "AMOUNT": "149.94",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000015,
+                "DATE": "2025-04-11 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 15",
+                "AMOUNT": "115.83",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000017,
+                "DATE": "2025-04-12 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 17",
+                "AMOUNT": "-53.63",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000009,
+                "DATE": "2025-04-18 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 9",
+                "AMOUNT": "149.51",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000012,
+                "DATE": "2025-04-23 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 12",
+                "AMOUNT": "93.18",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000011,
+                "DATE": "2025-04-27 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 11",
+                "AMOUNT": "80.10",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000003,
+                "DATE": "2025-05-01 00:00:00.000000",
+                "DESC": "CATEGORY:INCOME, transaction 3",
+                "AMOUNT": "147.12",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": 1492.27
+    },
+    "RENT_AND_UTILITIES": {
+        "event_list": [
+            {
+                "ID": 500000026,
+                "DATE": "2025-03-05 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 8",
+                "AMOUNT": "-23.17",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000018,
+                "DATE": "2025-03-14 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 0",
+                "AMOUNT": "-18.59",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000027,
+                "DATE": "2025-03-16 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 9",
+                "AMOUNT": "-250.39",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000024,
+                "DATE": "2025-03-20 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 6",
+                "AMOUNT": "-38.96",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000019,
+                "DATE": "2025-03-22 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 1",
+                "AMOUNT": "-21.89",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000025,
+                "DATE": "2025-04-11 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 7",
+                "AMOUNT": "-42.74",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000020,
+                "DATE": "2025-04-17 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 2",
+                "AMOUNT": "-6.32",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000021,
+                "DATE": "2025-04-18 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 3",
+                "AMOUNT": "-25.37",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000023,
+                "DATE": "2025-04-29 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 5",
+                "AMOUNT": "-31.14",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000022,
+                "DATE": "2025-04-30 00:00:00.000000",
+                "DESC": "CATEGORY:RENT_AND_UTILITIES, transaction 4",
+                "AMOUNT": "-26.58",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -485.15
+    },
+    "FOOD_AND_DRINK": {
+        "event_list": [
+            {
+                "ID": 500000030,
+                "DATE": "2025-03-01 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 2",
+                "AMOUNT": "-37.46",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000040,
+                "DATE": "2025-03-01 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 12",
+                "AMOUNT": "-20.02",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000032,
+                "DATE": "2025-03-02 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 4",
+                "AMOUNT": "-22.02",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000033,
+                "DATE": "2025-03-10 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 5",
+                "AMOUNT": "-37.59",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000028,
+                "DATE": "2025-03-16 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 0",
+                "AMOUNT": "-17.84",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000041,
+                "DATE": "2025-03-20 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 13",
+                "AMOUNT": "173.89",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000035,
+                "DATE": "2025-03-26 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 7",
+                "AMOUNT": "-24.75",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000034,
+                "DATE": "2025-03-30 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 6",
+                "AMOUNT": "-31.37",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000037,
+                "DATE": "2025-04-10 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 9",
+                "AMOUNT": "-24.75",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000038,
+                "DATE": "2025-04-12 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 10",
+                "AMOUNT": "-24.56",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000036,
+                "DATE": "2025-04-21 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 8",
+                "AMOUNT": "-31.90",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000029,
+                "DATE": "2025-04-24 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 1",
+                "AMOUNT": "-32.50",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000039,
+                "DATE": "2025-04-24 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 11",
+                "AMOUNT": "-41.64",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000031,
+                "DATE": "2025-04-30 00:00:00.000000",
+                "DESC": "CATEGORY:FOOD_AND_DRINK, transaction 3",
+                "AMOUNT": "-12.60",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -185.11
+    },
+    "SHOPPING": {
+        "event_list": [
+            {
+                "ID": 500000060,
+                "DATE": "2025-03-04 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 18",
+                "AMOUNT": "-31.56",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000055,
+                "DATE": "2025-03-07 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 13",
+                "AMOUNT": "-40.47",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000051,
+                "DATE": "2025-03-08 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 9",
+                "AMOUNT": "-38.69",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000048,
+                "DATE": "2025-03-12 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 6",
+                "AMOUNT": "-21.76",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000046,
+                "DATE": "2025-03-14 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 4",
+                "AMOUNT": "-18.78",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000049,
+                "DATE": "2025-03-19 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 7",
+                "AMOUNT": "-45.68",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000052,
+                "DATE": "2025-03-19 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 10",
+                "AMOUNT": "-46.97",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000053,
+                "DATE": "2025-03-22 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 11",
+                "AMOUNT": "-22.65",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000057,
+                "DATE": "2025-03-22 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 15",
+                "AMOUNT": "-23.08",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000047,
+                "DATE": "2025-03-23 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 5",
+                "AMOUNT": "-32.01",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000059,
+                "DATE": "2025-03-23 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 17",
+                "AMOUNT": "-22.00",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000054,
+                "DATE": "2025-04-01 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 12",
+                "AMOUNT": "-32.94",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000042,
+                "DATE": "2025-04-03 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 0",
+                "AMOUNT": "-16.12",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000058,
+                "DATE": "2025-04-06 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 16",
+                "AMOUNT": "-18.82",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000043,
+                "DATE": "2025-04-14 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 1",
+                "AMOUNT": "-47.28",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000044,
+                "DATE": "2025-04-17 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 2",
+                "AMOUNT": "-10.60",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000045,
+                "DATE": "2025-04-24 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 3",
+                "AMOUNT": "-40.39",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000050,
+                "DATE": "2025-04-27 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 8",
+                "AMOUNT": "-15.46",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000056,
+                "DATE": "2025-04-27 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 14",
+                "AMOUNT": "-25.32",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000061,
+                "DATE": "2025-04-29 00:00:00.000000",
+                "DESC": "CATEGORY:SHOPPING, transaction 19",
+                "AMOUNT": "432.79",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -117.79
+    },
+    "SUBSCRIPTIONS": {
+        "event_list": [
+            {
+                "ID": 500000072,
+                "DATE": "2025-03-09 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 10",
+                "AMOUNT": "214.64",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000066,
+                "DATE": "2025-03-12 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 4",
+                "AMOUNT": "-9.45",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000063,
+                "DATE": "2025-03-13 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 1",
+                "AMOUNT": "-46.15",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000062,
+                "DATE": "2025-03-15 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 0",
+                "AMOUNT": "-25.78",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000064,
+                "DATE": "2025-03-19 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 2",
+                "AMOUNT": "-21.11",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000070,
+                "DATE": "2025-03-21 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 8",
+                "AMOUNT": "-19.56",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000068,
+                "DATE": "2025-03-28 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 6",
+                "AMOUNT": "-31.35",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000071,
+                "DATE": "2025-04-13 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 9",
+                "AMOUNT": "-37.10",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000067,
+                "DATE": "2025-04-20 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 5",
+                "AMOUNT": "-42.70",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000069,
+                "DATE": "2025-04-20 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 7",
+                "AMOUNT": "-19.93",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000065,
+                "DATE": "2025-04-26 00:00:00.000000",
+                "DESC": "CATEGORY:SUBSCRIPTIONS, transaction 3",
+                "AMOUNT": "-20.21",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -58.7
+    },
+    "TRAVEL": {
+        "event_list": [
+            {
+                "ID": 500000076,
+                "DATE": "2025-03-01 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 3",
+                "AMOUNT": "-25.79",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000081,
+                "DATE": "2025-03-10 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 8",
+                "AMOUNT": "-14.28",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000083,
+                "DATE": "2025-03-13 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 10",
+                "AMOUNT": "-13.14",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000074,
+                "DATE": "2025-03-20 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 1",
+                "AMOUNT": "-25.09",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000082,
+                "DATE": "2025-03-21 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 9",
+                "AMOUNT": "-47.98",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000078,
+                "DATE": "2025-03-29 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 5",
+                "AMOUNT": "-10.12",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000073,
+                "DATE": "2025-04-02 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 0",
+                "AMOUNT": "-25.57",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000077,
+                "DATE": "2025-04-05 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 4",
+                "AMOUNT": "-43.95",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000080,
+                "DATE": "2025-04-05 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 7",
+                "AMOUNT": "-22.74",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000084,
+                "DATE": "2025-04-05 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 11",
+                "AMOUNT": "-12.05",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000079,
+                "DATE": "2025-04-14 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 6",
+                "AMOUNT": "-47.45",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            },
+            {
+                "ID": 500000075,
+                "DATE": "2025-05-01 00:00:00.000000",
+                "DESC": "CATEGORY:TRAVEL, transaction 2",
+                "AMOUNT": "-24.95",
+                "COUNTRY": "NL",
+                "CURRENCY": "EUR"
+            }
+        ],
+        "total": -313.11
+    }
+}
