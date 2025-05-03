@@ -2,97 +2,86 @@
   "analysis_summary": {
     "overspending_categories": [
       {
-        "category": "SUBSCRIPTIONS",
-        "user_monthly_spending": 206.09,
-        "national_average": 25.00,
-        "excess_euro": 181.09,
-        "excess_percent": 723.56
-      },
-      {
-        "category": "GROCERIES",
-        "user_monthly_spending": 438.60,
-        "national_average": 400.00,
-        "excess_euro": 38.60,
-        "excess_percent": 9.64
+        "category": "BARS_AND_CAFES",
+        "user_monthly_spending": 146.01,
+        "national_average": 100.0,
+        "excess_euro": 46.01,
+        "excess_percent": 46.01
       },
       {
         "category": "FOOD_AND_DRINK",
-        "user_monthly_spending": 164.53,
-        "national_average": 100.00,
-        "excess_euro": 64.53,
-        "excess_percent": 64.53
+        "user_monthly_spending": 190.17,
+        "national_average": 150.0,
+        "excess_euro": 40.17,
+        "excess_percent": 26.78
       }
     ],
     "spending_patterns": [
-      "Frequent small transactions in SUBSCRIPTIONS on various days",
-      "Weekly GROCERIES spending consistently above average"
+      "Frequent spending on Fridays at BARS_AND_CAFES",
+      "Weekly FOOD_AND_DRINK purchases on Sundays"
     ]
   },
   "recommendations": [
     {
-      "category": "SUBSCRIPTIONS",
-      "comment": "Review and cancel unused subscriptions to save €181.09/month",
-      "user_monthly_spending": 206.09,
-      "national_average": 25.00,
-      "excess_euro": 181.09,
-      "excess_percent": 723.56
-    },
-    {
-      "category": "GROCERIES",
-      "comment": "Plan meals and use coupons to reduce GROCERIES spending by €38.60/month",
-      "user_monthly_spending": 438.60,
-      "national_average": 400.00,
-      "excess_euro": 38.60,
-      "excess_percent": 9.64
+      "category": "BARS_AND_CAFES",
+      "comment": "Reduce frequency of visits, consider alternatives for socializing.",
+      "user_monthly_spending": 146.01,
+      "national_average": 100.0,
+      "excess_euro": 46.01,
+      "excess_percent": 46.01
     },
     {
       "category": "FOOD_AND_DRINK",
-      "comment": "Limit dining out to save €64.53/month for Japan trip",
-      "user_monthly_spending": 164.53,
-      "national_average": 100.00,
-      "excess_euro": 64.53,
-      "excess_percent": 64.53
+      "comment": "Plan meals, use coupons, and buy in bulk to reduce expenses.",
+      "user_monthly_spending": 190.17,
+      "national_average": 150.0,
+      "excess_euro": 40.17,
+      "excess_percent": 26.78
     }
   ],
   "challenges": [
     {
-      "title": "Subscription Detox",
-      "condition": "Review all subscriptions",
-      "target": "Cancel at least 2 unused",
+      "title": "Caf\u00e9 Cutback",
+      "condition": "Limit BARS_AND_CAFES visits to once a week",
+      "target": 50.0,
       "reward": {
         "xp": 100,
-        "savings_euro": 100.00,
-        "bonus": "Exclusive Budgeting Guide"
+        "savings_euro": 96.01,
+        "bonus": "Free Coffee Voucher after 4 weeks"
       },
-      "why": "Free up funds for your Japan adventure!"
+      "why": "Save for Tokyo's hidden gems, not daily lattes."
     },
     {
-      "title": "Grocery Guru",
-      "condition": "Plan meals for 2 weeks",
-      "target": "Save €20 on next grocery trip",
-      "reward": {
-        "xp": 50,
-        "savings_euro": 20.0,
-        "bonus": null
-      },
-      "why": "Every € saved brings you closer to Tokyo!"
-    },
-    {
-      "title": "Dine-In Challenge",
-      "condition": "Cook at home for 5 nights",
-      "target": "Save €50",
-      "amount": 50.0,
+      "title": "Cooking Challenge",
+      "condition": "Cook at home 5 nights a week",
+      "target": 75.0,
       "reward": {
         "xp": 150,
-        "savings_euro": 50.00,
-        "bonus": "Japanese Cooking Recipe Pack"
+        "savings_euro": 40.17,
+        "bonus": null
       },
-      "why": "Savor the savings for sashimi in Japan!"
+      "why": "Savor Japanese cuisine in Japan, not in takeouts here."
     }
   ],
   "savings_projection": {
-    "potential_monthly_savings": 250.09,
+    "potential_monthly_savings": 136.18,
     "note": "This amount is estimated based on completing all current challenges."
   },
-  "motivation": "You're €250 closer to Tokyo with just 3 challenges!"
+  "motivation": [
+    "\u00a31000 to Tokyo? You've got this!",
+    "Every \u20ac saved is a step closer to Japan",
+    "Sacrifice today, sushi tomorrow",
+    "You're not just saving, you're traveling",
+    "Small cuts, big Tokyo impact",
+    "Japan awaits, keep saving!",
+    "Every no to spending is a yes to Japan",
+    "Save aggressively, travel generously",
+    "Tokyo is calling, answer with savings",
+    " Discipline now, adventure later",
+    "Save with purpose, travel with pride",
+    "Your future self thanks you, in Japanese",
+    "Savings are the tickets to your dreams",
+    "Cut back to break away to Japan",
+    "Earn Tokyo, one saved euro at a time"
+  ]
 }
