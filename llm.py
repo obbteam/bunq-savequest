@@ -5,96 +5,16 @@ import os
 
 from openai import OpenAI
 
-client = OpenAI(
-  base_url = "https://integrate.api.nvidia.com/v1",
-  api_key = "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"
-)
 
 
-first_promt = """
+def goal_prompt():
 
-today is 2025-05-02 (format: YYYY-MM-DD)
-You are an AI financial coach
-
-The user has the following savings goal:
-- Goal: "{goal_name}" 
-- Amount: {goal_amount}€
-- Target date: {goal_target_date}
-- Country: {location}
-- Monthly income: {monthly_income}€
-
-Netherlands: €1700
-
-Germany: €1500
-
-France: €1650
-
-Belgium: €1550
-
-Austria: €1450
-
-Ireland: €1900
-
-Denmark: €1750
-
-Sweden: €1600
-
-Finland: €1500
-
-Spain: €1250
-
-Portugal: €1150
-
-Italy: €1350
-
-Greece: €1000
-
-Poland: €1000
-
-Czechia: €1050
-
-Tasks:
-
-1. Calculate how many days remain until the target date  
-2. Estimate the amount the user can realistically save each month , Use average monthly expenses in {location} to estimate how much the user can realistically save per month.  
-Assume moderate spending , basically you just monthly income - everage for this country = approximately how much you can save per month , but if the monthly income less then everage just put 20% from monthly salary 
-
-3. If the goal is realistic — return that  
-4. If NOT realistic:
-   - Calculate how many **days** the user will need to reach the goal at that monthly savings rate  
-   - Suggest the exact **date** when the goal is realistically reachable
-
----
-
-Return result in strict JSON format:
-
-```json
-{
-  "is_goal_realistic": true or false,
-  "days_available": int,
-  "estimated_monthly_savings": float,
-  "required_days_to_reach_goal": int,               // only if goal is not realistic
-  "recommended_completion_date": "YYYY-MM-DD"       // only if goal is not realistic
-}
-"""
-data_for_goal = """
-- Goal: "Trip to Japan"
-- Total amount needed: 1000€
-- Target date: 2025-06-02 (format: YYYY-MM-DD)
-- Country of residence: Netherlands
-- Monthly income: 1000€
-
-"""
-
-
-
-def goal_promt():
-  with open('SavedGoal.json', 'r') as f1:
+  with open('io_files/SavedGoal.json', 'r') as f1:
     data = json.load(f1)
 
-  with open('events2.json', 'r') as f2:
+  with open('io_files/events3.json', 'r') as f2:
     info = json.load(f2)
-  promt = f'''
+  prompt = f'''
   You are an AI financial coach. Your task is to analyze a user's past 3 months of transactions and generate a JSON report with detailed savings advice, personalized challenges, and a motivation message. Your output must follow the exact JSON format described below.
 
   VERY IMPORTANT:
@@ -240,7 +160,7 @@ def goal_promt():
   )
   completion = client.chat.completions.create(
     model="nvidia/llama-3.3-nemotron-super-49b-v1",
-    messages=[{"role": "system", "content": promt}],
+    messages=[{"role": "system", "content": prompt}],
     temperature=0.6,
     top_p=0.95,
     max_tokens=4096,
@@ -272,10 +192,9 @@ def goal_promt():
 
     result = json.loads(json_text)
 
-    with open('analyzed_summary.json', 'w') as f:
-      json.dump(result, f)
+    with open('io_files/analyzed_summary.json', 'w') as f:
+      json.dump(result, f, indent=2)
     json.dumps(result)
-    return result
 
 
   except Exception as e:
@@ -284,51 +203,74 @@ def goal_promt():
     return None
 
 def transaction_promt(goal_name, amount, due_date, income):
-  location = "Netherlands"
-  goal_data = {"name": goal_name, "amount": amount, "date": due_date, "location":location}
-  print(due_date)
-  goal_data.update({"location": "NL"})
-  with open('SavedGoal.json', 'w') as f:
-    json.dump(goal_data, f)
+
+  file_data = {"name": goal_name, "amount": amount, "date": due_date, "location":"NL"}
+  print(goal_name, amount, due_date, income)
+
+  with open('io_files/SavedGoal.json', 'w') as f:
+    json.dump(file_data, f)
 
 
-  m_promt = f"""
+  prompt = f"""
 
-  today is 2025-05-02 (format: YYYY-MM-DD)
+  today is 2025-05-03 (format: YYYY-MM-DD)
   You are an AI financial coach
-  
-    VERY IMPORTANT:
-  - Your output MUST be valid JSON.
-  - DO NOT include any text outside the JSON.
-  - DO NOT include markdown or any explanation — ONLY the JSON block.
 
-
-  The user has the following information:
+  The user has the following savings goal:
   - Goal: "{goal_name}" 
   - Amount: {amount}€
   - Target date: {due_date}
-  - Country: {location}
+  - Country: NL
   - Monthly income: {income}€
-
-
-
+  
+  Netherlands: €1700
+  
+  Germany: €1500
+  
+  France: €1650
+  
+  Belgium: €1550
+  
+  Austria: €1450
+  
+  Ireland: €1900
+  
+  Denmark: €1750
+  
+  Sweden: €1600
+  
+  Finland: €1500
+  
+  Spain: €1250
+  
+  Portugal: €1150
+  
+  Italy: €1350
+  
+  Greece: €1000
+  
+  Poland: €1000
+  
+  Czechia: €1050
+  
   Tasks:
-
+  
   1. Calculate how many days remain until the target date  
-  2. Estimate the amount the user can realistically save each month, take the average of the amount a regular person spends a month in {location} and subtract it from the income of this particular person. If
-
+  2. Estimate the amount the user can realistically save each month , Use average monthly expenses in NL to estimate how much the user can realistically save per month.  
+  Assume moderate spending , basically you just monthly income - everage for this country = approximately how much you can save per month , but if the monthly income less then everage just put 20% from monthly salary 
+  
   3. If the goal is realistic — return that  
   4. If NOT realistic:
      - Calculate how many **days** the user will need to reach the goal at that monthly savings rate  
      - Suggest the exact **date** when the goal is realistically reachable
-
+  
   ---
-
+  
   Return result in strict JSON format:
-
+  
   ```json
   {{
-  "is_goal_realistic": true or false,
+    "is_goal_realistic": true or false,
     "days_available": int,
     "estimated_monthly_savings": float,
     "required_days_to_reach_goal": int,               // only if goal is not realistic
@@ -342,7 +284,7 @@ def transaction_promt(goal_name, amount, due_date, income):
   )
   completion = client.chat.completions.create(
     model="nvidia/llama-3.3-nemotron-super-49b-v1",
-    messages=[{"role": "system", "content": m_promt}],
+    messages=[{"role": "system", "content": prompt}],
     temperature=0.6,
     top_p=0.95,
     max_tokens=4096,
@@ -351,32 +293,38 @@ def transaction_promt(goal_name, amount, due_date, income):
     stream=True
   )
 
+  import re
   # ✅ Collect the full response
   full_response = ""
   for chunk in completion:
     if chunk.choices[0].delta.content:
+      print(chunk.choices[0].delta.content, end="")
       full_response += chunk.choices[0].delta.content
 
+  json_match = re.search(r'\{.*\}', full_response, re.DOTALL)
+  if not json_match:
+    raise ValueError("❌ No JSON object found in response.")
+
+  json_text = json_match.group()
+
+  # Remove comments and strip whitespace
+  json_text = re.sub(r'//.*', '', json_text).strip()
+
   try:
-    import re
-
-    # Extract strict JSON block using regex
-    match = re.search(r'\{[\s\S]*?\}', full_response)
-    if not match:
-      raise ValueError("No JSON object found.")
-
-    json_text = match.group()
-
-    # Clean any invalid inline comments (e.g. //...)
-    json_text = re.sub(r'//.*', '', json_text)
-    json_text = json_text.strip()
-
     result = json.loads(json_text)
-    return result
+  except json.JSONDecodeError as e:
+    print("❌ JSON decoding failed:", e)
+    print("Raw JSON text:", json_text)
+    raise
 
+  # ✅ Append user input to the result
+  result.update({
+    "goal_name": goal_name,
+    "goal_amount": amount,
+    "target_date": due_date,
+    "monthly_income": income
+  })
 
-  except Exception as e:
-    print("❌ Failed to parse JSON:", e)
-    print("🔎 Raw response:", full_response)
-    return None
+  return result
+
 

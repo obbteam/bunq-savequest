@@ -3,9 +3,9 @@ from PySide6.QtWidgets import (
     QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QMessageBox, QHBoxLayout
 )
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
-import sys, os, json
+import sys, os, json, random
 from datetime import datetime
-from llm import transaction_promt, goal_promt
+from llm import transaction_promt, goal_prompt
 
 # 🔁 Shared stylesheet (applied to all windows)
 STYLESHEET = """
@@ -126,15 +126,22 @@ class GoalSummaryWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Your Goal")
         self.setFixedSize(400, 700)
-        self.setStyleSheet("background-color: #000000;")
+        self.setStyleSheet("background-color: #1e1f1e;")
 
         layout = QVBoxLayout()
         layout.setContentsMargins(20, 26, 20, 26)
         layout.setSpacing(8)  # 🔧 Tighter spacing between all widgets
 
+
+        if not os.path.exists('io_files/analyzed_summary.json'):
+            goal_prompt()
+        with open('io_files/analyzed_summary.json', 'r') as final_file:
+            final_data = json.load(final_file)
         # 🔝 Top-left Title
-        title = QLabel("Your Goal")
+        title = QLabel(random.choice(final_data["motivation"]))
         title.setAlignment(Qt.AlignLeft)
+        title.setWordWrap(True)
+        title.setMaximumWidth(600)
         title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
         layout.addWidget(title)
 
@@ -145,10 +152,11 @@ class GoalSummaryWindow(QWidget):
             f"💰 Amount: €{amount}"
         ]))
 
+        new_challenge = final_data["challenges"][0]
         layout.addLayout(self.section_with_card(
-            "Current Challenge",
+            new_challenge["title"],
             self.create_dark_card([
-                "💡 Skip coffee today and save €5!"
+                new_challenge["condition"]
             ])
         ))
 
@@ -279,7 +287,6 @@ class ResultWindow(QWidget):
         self.close()
 
     def show_goal_screen(self):
-        result_json = goal_promt()
         self.goal_window = GoalSummaryWindow(
             self.goal_data['name'],
             self.goal_data['amount'],
@@ -448,10 +455,10 @@ class MainWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
-if not os.path.exists('SavedGoal.json'):
+if not os.path.exists('io_files/SavedGoal.json'):
     window = MainWindow()
 else:
-    with open('SavedGoal.json', 'r') as file:
+    with open('io_files/SavedGoal.json', 'r') as file:
         Data = json.load(file)
     window = GoalSummaryWindow(
             Data['name'],
