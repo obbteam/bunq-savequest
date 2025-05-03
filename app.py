@@ -1,48 +1,123 @@
 from PySide6.QtWidgets import (
     QApplication, QLabel, QLineEdit, QPushButton, QProgressBar,
-    QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy,
-    QMessageBox, QHBoxLayout
+    QVBoxLayout, QMainWindow, QWidget, QSpacerItem, QSizePolicy, QMessageBox, QHBoxLayout
 )
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QPoint, QEasingCurve
-import sys, os, json
+import sys, os, json, random
 from datetime import datetime
-from llm import transaction_promt, goal_promt
+from llm import transaction_promt, goal_prompt
+
 
 STYLESHEET = """
-    QWidget { background-color: #1e1f1e; }
+    QWidget {
+        background-color: #1e1f1e;
+    }
     QLabel#header,
     QLabel#resultText,
     QLabel#title,
     QLabel#challenge,
     QLabel#saved {
-        color: white; font-size: 20px; font-weight: bold;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
     }
-    QLineEdit { color: white; padding: 12px; font-size: 16px;
-                border: none; border-radius: 16px; font-weight: bold; }
-    QLineEdit#inputPink   { background-color: #D63384; }
-    QLineEdit#inputOrange { background-color: #E67E22; }
-    QLineEdit#inputBlue   { background-color: #2980B9; }
-    QLineEdit#inputGreen  { background-color: #1ABC9C; }
-    QLineEdit::placeholder { color: #EEEEEE; }
+    QLineEdit {
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 16px;
+        font-weight: bold;
+    }
+    QLineEdit#inputPink {
+        background-color: #D63384;
+    }
+    QLineEdit#inputOrange {
+        background-color: #E67E22;
+    }
+    QLineEdit#inputBlue {
+        background-color: #2980B9;
+    }
+    QLineEdit#inputGreen {
+        background-color: #1ABC9C;
+    }
+    QLineEdit::placeholder {
+        color: #EEEEEE;
+    }
     QPushButton#createButton,
     QPushButton#agreeButton {
-        background-color: #2ECC71; color: black; padding: 16px;
-        font-size: 17px; font-weight: bold; border: none; border-radius: 25px;
+        background-color: #2ECC71;
+        color: black;
+        padding: 16px;
+        font-size: 17px;
+        font-weight: bold;
+        border: none;
+        border-radius: 25px;
     }
     QPushButton#createButton:hover,
-    QPushButton#agreeButton:hover { background-color: #27AE60; }
+    QPushButton#agreeButton:hover {
+        background-color: #27AE60;
+    }
     QPushButton#disagreeButton {
-        background-color: #E74C3C; color: white; padding: 16px;
-        font-size: 17px; font-weight: bold; border: none; border-radius: 25px;
+        background-color: #E74C3C;
+        color: white;
+        padding: 16px;
+        font-size: 17px;
+        font-weight: bold;
+        border: none;
+        border-radius: 25px;
     }
-    QPushButton#disagreeButton:hover { background-color: #C0392B; }
+    QPushButton#disagreeButton:hover {
+        background-color: #C0392B;
+    }
     QProgressBar {
-        background-color: #2C2C2E; border: none; height: 25px;
-        border-radius: 12px; text-align: center;
+        background-color: #2C2C2E;
+        border: none;
+        height: 25px;
+        border-radius: 12px;
+        text-align: center;
     }
-    QProgressBar::chunk { background-color: #2ECC71; border-radius: 12px; }
-    QLabel#saved { color: #2ECC71; font-size: 18px; font-weight: bold; }
-    QWidget#card { background-color: #1E1E1E; border-radius: 16px; }
+    QProgressBar::chunk {
+        background-color: #2ECC71;
+        border-radius: 12px;
+    }
+    
+    QLabel#mainTitle {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    }
+
+    QLabel#title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    }
+
+    QLabel#sectionTitle {
+        color: #AAAAAA;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    QLabel#infoText {
+        font-size: 16px;
+        color: white;
+    }
+
+    QLabel#saved {
+        color: #2ECC71;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    QWidget#card {
+        background-color: #1E1E1E;
+        border-radius: 16px;
+    }
+
 """
 
 JSON_PATH = "io_files/analyzed_summary.json"
@@ -63,27 +138,52 @@ class GoalSummaryWindow(QWidget):
         outer.setSpacing(8)
 
         title = QLabel("Your Goal")
-        title.setAlignment(Qt.AlignLeft)
-        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
-        outer.addWidget(title)
+        self.setStyleSheet("background-color: #1e1f1e;")
 
-        outer.addWidget(
+        layout = QVBoxLayout()
+        layout.setContentsMargins(20, 26, 20, 26)
+        layout.setSpacing(8)  # 🔧 Tighter spacing between all widgets
+
+
+        if not os.path.exists('io_files/analyzed_summary.json'):
+            goal_prompt()
+        with open('io_files/analyzed_summary.json', 'r') as final_file:
+            final_data = json.load(final_file)
+        # 🔝 Top-left Title
+        title = QLabel(random.choice(final_data["motivation"]))
+        title.setAlignment(Qt.AlignLeft)
+        title.setWordWrap(True)
+        title.setMaximumWidth(600)
+        title.setStyleSheet("color: white; font-size: 24px; font-weight: bold;")
+        layout.addWidget(title)
+
+        # 🎯 Goal Info Card
+        layout.addWidget(self.create_dark_card([
+            f"🏦 Goal: {goal_name}",
+            f"📆 Due Date: {due_date}",
+            f"💰 Amount: €{amount}"
+        ]))
+
+        new_challenge = final_data["challenges"][0]
+        layout.addLayout(self.section_with_card(
+            new_challenge["title"],
             self.create_dark_card([
-                f"🏦 Goal: {goal_name}",
-                f"📆 Due Date: {due_date}",
-                f"💰 Amount: €{self.goal_amount:,.0f}"
+                new_challenge["condition"]
             ])
         )
 
+        # Current‑challenge section (kept for rebuilds)
         self.current_section = QVBoxLayout()
         self.current_section.setSpacing(4)
         outer.addLayout(self.current_section)
-        self.refresh_current_challenge()       
+        self.refresh_current_challenge()       # build it once
 
+        # Progress section
         outer.addLayout(
             self.section_with_card("Progress", self.create_progress_and_saved_row())
         )
 
+    # ──────────────────────  JSON persistence helpers  ───────────────────────
     def load_state(self):
         if not os.path.exists(JSON_PATH):
             return [], 0.0
@@ -106,27 +206,22 @@ class GoalSummaryWindow(QWidget):
         except OSError as e:
             print(f"⚠️  Could not save progress: {e}")
 
-    
+    # ─────────────────────────────  UI helpers  ──────────────────────────────
     def create_dark_card(self, lines, button_text=None, callback=None) -> QWidget:
         card = QWidget()
-        card.setStyleSheet("background-color:#1E1E1E;border-radius:16px;")
-        v = QVBoxLayout(card)
-        v.setContentsMargins(16, 12, 16, 12)
-        v.setSpacing(3)
-
-        for txt in lines:
-            lbl = QLabel(txt)
-            lbl.setStyleSheet("color:white;font-size:15px;font-weight:bold;")
-            lbl.setWordWrap(True)
-            v.addWidget(lbl)
-
-        if button_text:
-            v.addSpacing(8)
-            btn = QPushButton(button_text)
-            btn.setFixedWidth(100)
-            if callback:
-                btn.clicked.connect(callback)
-            v.addWidget(btn, alignment=Qt.AlignRight)
+        card.setStyleSheet("""
+            background-color: #1E1E1E;
+            border-radius: 16px;
+        """)
+        layout = QVBoxLayout()
+        layout.setContentsMargins(16, 12, 16, 12)
+        layout.setSpacing(3)
+        for text in lines:
+            label = QLabel(text)
+            label.setStyleSheet("color: white; font-size: 15px; font-weight: bold;")
+            label.setWordWrap(True)
+            layout.addWidget(label)
+        card.setLayout(layout)
         return card
 
     def section_with_card(self, heading: str, card_or_layout):
@@ -141,7 +236,7 @@ class GoalSummaryWindow(QWidget):
             lay.addLayout(card_or_layout)
         return lay
 
-    
+    # Progress row
     def create_progress_and_saved_row(self) -> QWidget:
         row = QWidget()
         h = QHBoxLayout(row)
@@ -154,28 +249,15 @@ class GoalSummaryWindow(QWidget):
 
         self.progress_bar = QProgressBar()
         self.progress_bar.setFixedHeight(20)
+        self.progress_bar.setValue(self.compute_progress_percent())
         self.progress_bar.setStyleSheet(
             "QProgressBar{background-color:#6E6E73;border:none;border-radius:10px;text-align:center;}"
             "QProgressBar::chunk{background-color:#2ECC71;border-radius:10px;}")
-        self.update_progress_smoothly(self.compute_progress_percent())
         h.addWidget(self.progress_bar, 1)
 
         return row
-    
-    def update_progress_smoothly(self, new_value: int):
-        
-        new_value = max(0, min(100, new_value))
 
-        animation = QPropertyAnimation(self.progress_bar, b"value")
-        animation.setDuration(750)  
-        animation.setStartValue(self.progress_bar.value())
-        animation.setEndValue(new_value)
-        animation.start()
-
-
-        
-        self.progress_animation = animation
-
+    # Build a card for one challenge
     def build_challenge_card(self, ch: dict) -> QWidget:
         return self.create_dark_card(
             [
@@ -187,8 +269,9 @@ class GoalSummaryWindow(QWidget):
             callback=self.current_challenge_completed
         )
 
+    # ───────────────────────  Rebuild current section  ───────────────────────
     def refresh_current_challenge(self):
-        
+        # clear the layout
         while self.current_section.count():
             item = self.current_section.takeAt(0)
             if item.widget():
@@ -196,12 +279,12 @@ class GoalSummaryWindow(QWidget):
             elif item.layout():
                 self._delete_layout_recursive(item.layout())
 
-        
+        # heading
         head = QLabel("Current Challenge")
         head.setStyleSheet("color:white;font-size:18px;font-weight:bold;")
         self.current_section.addWidget(head)
 
-        
+        # card or "all done"
         if self.challenges:
             self.current_card = self.build_challenge_card(self.challenges[-1])
             self.current_section.addWidget(self.current_card)
@@ -219,6 +302,7 @@ class GoalSummaryWindow(QWidget):
                 self._delete_layout_recursive(item.layout())
         layout.deleteLater()
 
+    # ────────────────────────────  Progress  ────────────────────────────────
     def compute_progress_percent(self) -> int:
         return 0 if self.goal_amount == 0 else min(
             100, int(round(self.saved_amount / self.goal_amount * 100))
@@ -226,28 +310,25 @@ class GoalSummaryWindow(QWidget):
 
     def update_progress(self):
         self.saved_label.setText(f"💸 You've saved: €{self.saved_amount:,.0f}")
-        self.update_progress_smoothly(self.compute_progress_percent())
-        
-        
+        self.progress_bar.setValue(self.compute_progress_percent())
 
+    # ──────────────────────────  Button slot  ───────────────────────────────
     def current_challenge_completed(self):
         if not self.challenges:
             return
+        # pop and add reward
         ch = self.challenges.pop()
-        
         self.saved_amount += float(ch["reward"]["savings_euro"])
         self.persist_state()
 
+        # refresh UI
         self.refresh_current_challenge()
         self.update_progress()
-        if not self.challenges:
-            NotificationWidget(self).show_notification("🎉 Goal Reached!")
-        else: NotificationWidget(self).show_notification("🎉 Challenge Done!")
 
 
+# ─────────────────────────────  RESULT WINDOW  ─────────────────────────────
 class ResultWindow(QWidget):
-    def __init__(self, main_app_ref, success, save_per_month,
-                 goal_data, suggested_days=None, goal_date=None):
+    def __init__(self, main_app_ref, success: bool, save_per_month, goal_data, suggested_days=None, goal_date=None):
         super().__init__()
         self.setWindowTitle("SaveQuest Result")
         self.setFixedSize(400, 700)
@@ -255,47 +336,49 @@ class ResultWindow(QWidget):
         self.main_app_ref = main_app_ref
         self.goal_data = goal_data
 
-        lay = QVBoxLayout(self)
-        lay.setContentsMargins(30, 40, 30, 30)
-        lay.setSpacing(20)
+        layout = QVBoxLayout()
+        layout.setContentsMargins(30, 40, 30, 30)
+        layout.setSpacing(20)
 
-        msg = QLabel(objectName="resultText")
-        msg.setAlignment(Qt.AlignCenter)
-        msg.setWordWrap(True)
-        lay.addWidget(msg)
+        self.message = QLabel()
+        self.message.setAlignment(Qt.AlignCenter)
+        self.message.setWordWrap(True)
+        self.message.setObjectName("resultText")
+        layout.addWidget(self.message)
 
         if success:
-            msg.setText(
-                f"✅ Great! You can realistically save this amount by your due date,"
-                f" if you save €{save_per_month} per month.\nLet's start!"
-            )
-            btn = QPushButton("🚀 Let's Start", objectName="agreeButton")
-            btn.clicked.connect(self.show_goal_screen)
-            lay.addWidget(btn)
+            self.message.setText(
+                f"✅ Great! You can realistically save this amount by your due date, if you save €{save_per_month} per month.\nLet's start!")
+            proceed_btn = QPushButton("🚀 Let's Start")
+            proceed_btn.setObjectName("agreeButton")
+            proceed_btn.clicked.connect(self.show_goal_screen)
+            layout.addWidget(proceed_btn)
         else:
-            msg.setText(
-                f"⚠️ The goal is not realistic.\nSuggested new end date: {goal_date}"
-                f" (in {suggested_days} days).\nAverage saving per month would be"
-                f" {save_per_month}\nDo you agree?"
+            self.message.setText(
+                f"⚠️ The goal is not realistic.\nSuggested new end date is {goal_date}, which is in {suggested_days} days.\nThe average saving amount per month will be €{save_per_month}\nDo you agree?"
             )
-            agree = QPushButton("✅ Agree", objectName="agreeButton")
-            disagree = QPushButton("❌ Don't Agree", objectName="disagreeButton")
-            agree.clicked.connect(self.show_goal_screen)
-            disagree.clicked.connect(self.back_to_form)
-            lay.addWidget(agree)
-            lay.addWidget(disagree)
+            agree_btn = QPushButton("✅ Agree")
+            disagree_btn = QPushButton("❌ Don't Agree")
+            agree_btn.setObjectName("agreeButton")
+            disagree_btn.setObjectName("disagreeButton")
+            agree_btn.clicked.connect(self.show_goal_screen)
+            disagree_btn.clicked.connect(self.back_to_form)
+            layout.addWidget(agree_btn)
+            layout.addWidget(disagree_btn)
+
+        self.setLayout(layout)
 
     def back_to_form(self):
         self.main_app_ref.show()
         self.close()
 
     def show_goal_screen(self):
-        goal_promt()        
-        win = GoalSummaryWindow(
+        self.goal_window = GoalSummaryWindow(
             self.goal_data['name'],
             self.goal_data['amount'],
             self.goal_data['date']
         )
+        NotificationWidget(win).show_notification("🎉 Goal created successfully!")
         win.show()
         self.close()
 
@@ -303,38 +386,45 @@ class ResultWindow(QWidget):
 class NotificationWidget(QLabel):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setStyleSheet(
-            "background-color:#59bd66;color:white;padding:12px 24px;"
-            "border-radius:8px;font-weight:bold;font-size:14px;")
+        self.setStyleSheet("""
+            background-color: #59bd66;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        """)
         self.setAlignment(Qt.AlignCenter)
         self.setFixedHeight(50)
         self.setMinimumWidth(250)
 
-        self.move(-300, 20)
+        self.move(-300, 20)                                # off‑screen
 
         self.anim = QPropertyAnimation(self, b"pos")
         self.anim.setDuration(750)
         self.anim.setEasingCurve(QEasingCurve.OutBack)
 
-        self.timer = QTimer(self, singleShot=True)
-        self.timer.timeout.connect(self.hide_notification)
+        # Timer to auto-hide
+        self.hide_timer = QTimer()
+        self.hide_timer.setSingleShot(True)
+        self.hide_timer.timeout.connect(self.hide_notification)
 
-    def show_notification(self, text, duration=3000):
-        self.setText(text)
+    def show_notification(self, message, duration=3000):
+        """Show notification with animation"""
+        self.setText(message)
         self.show()
-        self.anim.setStartValue(QPoint(75, -80))
+        self.anim.setStartValue(QPoint(-300, 20))
         self.anim.setEndValue(QPoint(75, 20))
         self.anim.start()
         self.timer.start(duration)
-        
-    
 
     def hide_notification(self):
         self.anim.setStartValue(self.pos())
-        self.anim.setEndValue(QPoint(75, -80))
+        self.anim.setEndValue(QPoint(-300, 20))
         self.anim.start()
 
 
+# ─────────────────────────────  MAIN WINDOW  ──────────────────────────────
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -342,26 +432,38 @@ class MainWindow(QMainWindow):
         self.setFixedSize(400, 700)
         self.setStyleSheet(STYLESHEET)
 
-        central = QWidget()
-        self.setCentralWidget(central)
-        v = QVBoxLayout(central)
-        v.setContentsMargins(24, 40, 24, 24)
-        v.setSpacing(20)
+        central_widget = QWidget()
+        self.layout = QVBoxLayout()
+        self.layout.setContentsMargins(24, 40, 24, 24)
+        self.layout.setSpacing(20)
 
-        header = QLabel("🎯 Let's create a new saving goal", objectName="header")
+        header = QLabel("🎯 Let's create a new saving goal")
         header.setAlignment(Qt.AlignCenter)
-        v.addWidget(header)
+        header.setObjectName("header")
+        self.layout.addWidget(header)
 
-        self.name_input   = self.make_input("🏦 Goal Name",  "inputPink")
-        self.amount_input = self.make_input("💰 Amount (€)", "inputOrange")
-        self.date_input   = self.make_input("📅 Due Date (YYYY-MM-DD)", "inputBlue")
-        self.income_input = self.make_input("💼 Monthly Income (€)",    "inputGreen")
+        self.name_input = QLineEdit()
+        self.name_input.setPlaceholderText("🏦 Goal Name")
+        self.name_input.setObjectName("inputPink")
 
-        v.addWidget(self.name_input)
-        v.addWidget(self.amount_input)
-        v.addWidget(self.date_input)
-        v.addWidget(self.income_input)
-        v.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding))
+        self.amount_input = QLineEdit()
+        self.amount_input.setPlaceholderText("💰 Amount (€)")
+        self.amount_input.setObjectName("inputOrange")
+
+        self.date_input = QLineEdit()
+        self.date_input.setPlaceholderText("📅 Due Date (YYYY-MM-DD)")
+        self.date_input.setObjectName("inputBlue")
+
+        self.income_input = QLineEdit()
+        self.income_input.setPlaceholderText("💼 Monthly Income (€)")
+        self.income_input.setObjectName("inputGreen")
+
+        self.layout.addWidget(self.name_input)
+        self.layout.addWidget(self.amount_input)
+        self.layout.addWidget(self.date_input)
+        self.layout.addWidget(self.income_input)
+
+        self.layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
         create = QPushButton("➕ Create Goal", objectName="createButton")
         create.clicked.connect(self.handle_goal_submission)
@@ -373,57 +475,69 @@ class MainWindow(QMainWindow):
         line.setObjectName(obj_name)
         return line
 
+    # Handles "Create Goal"
     def handle_goal_submission(self):
-        name   = self.name_input.text().strip()
+        name = self.name_input.text()
         amount = self.amount_input.text()
-        date   = self.date_input.text()
+        date = self.date_input.text()
         income = self.income_input.text()
 
         try:
-            amount_val = float(amount); income_val = float(income)
+            amount_val = float(amount)
+            income_val = float(income)
             if amount_val <= 0 or income_val <= 0:
-                raise ValueError
+                raise ValueError("Amounts must be positive")
         except ValueError:
-            QMessageBox.warning(self, "Input Error",
-                                 "❌ Amount and Income must be positive numbers.")
+            QMessageBox.warning(self, "Input Error", "❌ Amount and Income must be positive numbers.")
             return
-        if not name:
+
+        try:
+            if not name.strip():
+                raise ValueError("The goal must not be empty")
+        except ValueError:
             QMessageBox.warning(self, "Input Error", "❌ Goal name cannot be empty.")
             return
+
         try:
             due_date = datetime.strptime(date, "%Y-%m-%d")
         except ValueError:
-            QMessageBox.warning(self, "Date Format Error",
-                                 "❌ Date must be in format YYYY-MM-DD.")
+            QMessageBox.warning(self, "Date Format Error", "❌ Date must be in format YYYY-MM-DD.")
             return
+
         if due_date < datetime.today():
-            QMessageBox.warning(self, "Date Error",
-                                 "❌ Due date cannot be earlier than today.")
+            QMessageBox.warning(self, "Date Error", "❌ Due date cannot be earlier than today.")
             return
+
 
         goal_data = {"name": name, "amount": amount, "date": date}
 
-        res = transaction_promt(name, amount, date, income)
-        if res["is_goal_realistic"]:
-            win = ResultWindow(self, True, res["estimated_monthly_savings"], goal_data)
+        result_json = transaction_promt(name, amount, date, income)
+        if result_json["is_goal_realistic"]:
+            self.result_window = ResultWindow(self, success=True, goal_date=date, goal_data=goal_data,
+                                              save_per_month=result_json["estimated_monthly_savings"])
         else:
-            win = ResultWindow(
-                self, False, res["estimated_monthly_savings"], goal_data,
-                suggested_days=res["required_days_to_reach_goal"],
-                goal_date=res["recommended_completion_date"]
-            )
-        win.show()
+            self.result_window = ResultWindow(self, success=False,
+                                              suggested_days=result_json["required_days_to_reach_goal"],
+                                              goal_data=goal_data,
+                                              goal_date=result_json["recommended_completion_date"],
+                                              save_per_month=result_json["estimated_monthly_savings"])
+
+        self.result_window.show()
+
         self.hide()
 
 
 app = QApplication(sys.argv)
-
-if not os.path.exists('SavedGoal.json'):
+if not os.path.exists('io_files/SavedGoal.json'):
     window = MainWindow()
 else:
-    with open('SavedGoal.json', 'r', encoding='utf-8') as f:
-        d = json.load(f)
-    window = GoalSummaryWindow(d['name'], d['amount'], d['date'])
-
+    with open('io_files/SavedGoal.json', 'r') as file:
+        Data = json.load(file)
+    window = GoalSummaryWindow(
+            Data['name'],
+            Data['amount'],
+            Data['date']
+        )
 window.show()
+NotificationWidget(window).show_notification("🎉 Goal created successfully!")
 app.exec()

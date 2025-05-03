@@ -138,7 +138,7 @@ def fetchEvents():
     else:
         print("No events found.")
 
-    with open("events_by_category.json", "w", encoding="utf-8") as f:
+    with open("io_files/events1.json", "w", encoding="utf-8") as f:
         json.dump(events_by_category, f, ensure_ascii=False, indent=4)
 
 #createPayment(Category.UTILITIES.value, 50, "car maintenance")
