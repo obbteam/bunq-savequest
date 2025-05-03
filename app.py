@@ -434,8 +434,10 @@ class MainWindow(QMainWindow):
         # monthly_goal = amount_val / months_available
 
         goal_data = {"name": name, "amount": amount, "date": date}
+        goal_data.update({"location":"NL"})
         with open('SavedGoal.json', 'w') as f:
             json.dump(goal_data, f)
+            goal_data.pop("location")
 
         result_json = transaction_promt(name, amount, date, income)
         if result_json["is_goal_realistic"]:
