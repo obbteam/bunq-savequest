@@ -10,8 +10,8 @@ from bunq import ApiEnvironmentType
 # Create an API context for production
 api_context = ApiContext.create(
     ApiEnvironmentType.SANDBOX, # SANDBOX for testing
-    "sandbox_cfeb239b11862697a80e9041493acfe31e1e56eeecc42302eb44db3e",
-    "risame"
+    "sandbox_f101134a024c1f4fa41f8ec5a04eeb7990b8fabd2e7de1cff19a8693",
+    "obb"
 )
 
 # Save the API context to a file for future use

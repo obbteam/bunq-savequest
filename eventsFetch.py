@@ -4,17 +4,44 @@ from bunq.sdk.context.api_context import ApiContext
 from bunq.sdk.context.bunq_context import BunqContext
 from bunq.sdk.model.generated.endpoint import PaymentApiObject
 from bunq.sdk.model.generated.object_ import AmountObject, PointerObject
-from bunq import Pagination
-from bunq import ApiEnvironmentType
 from enum import Enum
+from collections import defaultdict
 
 class Category(Enum):
-    FOOD = "FOOD"
-    TRAVEL = "TRAVEL"
+    GENERAL = "GENERAL"
+    SUBSCRIPTIONS = "SUBSCRIPTIONS"
+    CASH = "CASH"
+    SAVINGS = "SAVINGS"
+    FINANCE = "FINANCE"
+    FAMILY = "FAMILY"
+    SHOPPING = "SHOPPING"
     ENTERTAINMENT = "ENTERTAINMENT"
+    FOOD_AND_DRINK = "FOOD_AND_DRINK"
+    GROCERIES = "GROCERIES"
+    PERSONAL_CARE = "PERSONAL_CARE"
+    HOUSEHOLD_EXPENSES = "HOUSEHOLD_EXPENSES"
+    TRAVEL = "TRAVEL"
+    BUSINESS_EXPENSES = "BUSINESS_EXPENSES"
+    CAR_EXPENSES = "CAR_EXPENSES"
+    UNCATEGORIZED = "UNCATEGORIZED"
+    ELECTRONICS = "ELECTRONICS"
+    INVESTMENTS = "INVESTMENTS"
+    CULTURE = "CULTURE"
+    HEALTHCARE = "HEALTHCARE"
+    PETS = "PETS"
+    CLOTHING = "CLOTHING"
+    SPORTS = "SPORTS"
+    GIFTS = "GIFTS"
+    PAYROLL = "PAYROLL"
+    HR = "HR"
+    MARKETING = "MARKETING"
+    RENT_AND_UTILITIES = "RENT_AND_UTILITIES"
+    INSURANCE = "INSURANCE"
+    EMPLOYEE_BENEFITS = "EMPLOYEE_BENEFITS"
+    OFFICE_SUPPLIES = "OFFICE_SUPPLIES"
+    ASSETS = "ASSETS"
+    PROFESSIONAL_SERVICES = "PROFESSIONAL_SERVICES"
     INCOME = "INCOME"
-    UTILITIES = "UTILITIES"
-    OTHER = "OTHER"
 
 api_context = ApiContext.restore("bunq_api_context.conf")
 BunqContext.load_api_context(api_context)
@@ -49,35 +76,94 @@ def fetchEvents():
     data = res.read()
     response = json.loads(data.decode("utf-8"))
 
+    events_by_category = {}
+
     if "Response" in response:
         for event in response["Response"]:
     
-            print(f"Event ID: {event['Event']['id']}")
-            print(f"Created: {event['Event']['created']}")
-            print(f"Status: {event['Event']['status']}")
-            print(f"Action: {event['Event']['action']}")
 
             if 'object' in event['Event']:
                 event_object = event['Event']['object']
-                if 'RequestInquiry' in event_object:
+                if 'RequestInquiry' in event_object and event_object["RequestInquiry"]["status"] == "FINALIZED":
                     request_inquiry = event_object['RequestInquiry']
-                    print(f"Request Inquiry ID: {request_inquiry['id']}")
-                    print(f"Amount Inquired: {request_inquiry['amount_inquired']['value']} {request_inquiry['amount_inquired']['currency']}")
-                    print(f"Amount Responded: {request_inquiry['amount_responded']['value']} {request_inquiry['amount_responded']['currency']}")
-                    print(f"Time Responded: {request_inquiry['time_responded']}")
-                else:
-                    print("No RequestInquiry details available.")
-                if 'additional_transaction_information' in event['Event']:
-                    additionalInfo = event['Event']['additional_transaction_information']
-                    print(f"category: {additionalInfo['category']['category']}")
-                    print(f"type: {additionalInfo['category']['type']}")
-                else:
-                    print("No additional info details available.")
+
+                    event_entry = {
+                        "ID": event["Event"]["id"],
+                        "DATE": event["Event"]["created"],
+                        "DESC": request_inquiry["description"],
+                        "AMOUNT": request_inquiry["amount_responded"]["value"],
+                        "COUNTRY": request_inquiry["user_alias_created"]["country"],
+                        "CURRENCY": request_inquiry["amount_responded"]["currency"]
+                    }
+                    if "INCOME" not in events_by_category:
+                        events_by_category["INCOME"] = []
+
+                    events_by_category["INCOME"].append(event_entry)
+
+                elif 'Payment' in event_object:
+                    categoryName = event_object["Payment"]["description"]
+                    start = categoryName.index("CATEGORY:") + len("CATEGORY:")
+                    end = categoryName.find(",", start)
+                    categoryName = categoryName[start:end].strip()
+
+                    event_entry = {
+                        "ID": event["Event"]["id"],
+                        "DATE": event["Event"]["created"],
+                        "DESC": event_object["Payment"]["description"],
+                        "AMOUNT": event_object["Payment"]["amount"]['value'],
+                        "COUNTRY": event_object["Payment"]["alias"]["country"],
+                        "CURRENCY": event_object["Payment"]["amount"]['currency']
+                    }
+                    if categoryName not in events_by_category:
+                        events_by_category[categoryName] = []
+
+                    events_by_category[categoryName].append(event_entry)
             print("\n---\n")
     else:
         print("No events found.")
+    print(events_by_category)
 
 #createPayment(Category.UTILITIES.value, 50, "car maintenance")
 
-def parseData():
-    
+CATEGORY_KEYWORDS = {
+    "FOOD": ["FOOD", "mcdonald", "pizza", "restaurant", "burger", "kfc"],
+    "TRAVEL": ["TRAVEL", "uber", "train", "ns", "flixbus", "airbnb"],
+    "ENTERTAINMENT": ["ENTERTAINMENT", "netflix", "spotify", "cinema", "amusement"],
+}
+
+def categorize(description):
+    desc = description.lower()
+    for category, keywords in CATEGORY_KEYWORDS.items():
+        if any(keyword in desc for keyword in keywords):
+            return category
+    return "GENERAL"
+
+def analyze_events(events):
+    analysis = {
+        "Total_income": 0.0,
+        "Total_outcome": 0.0,
+        "Total_category": defaultdict(float)
+    }
+
+    for event in events:
+        if 'Payment' in event:
+            payment = event['Payment']
+            amount = float(payment['amount']['value'])
+            description = payment.get('description', '')
+
+            if amount > 0:
+                analysis["Total_income"] += amount
+            else:
+                analysis["Total_outcome"] += abs(amount)
+                category = categorize(description)
+                analysis["Total_category"][category] += abs(amount)
+
+    # Convert defaultdict to dict for output
+    analysis["Total_category"] = dict(analysis["Total_category"])
+    return {"Analysis": analysis}
+
+fetchEvents()
+
+for category in Category:
+    for i in range(5):
+        createPayment(category.value, (i+1)*0.5, f"test transaction for{category.value}, number:{i}")
