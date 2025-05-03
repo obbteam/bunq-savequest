@@ -216,8 +216,8 @@ Return result in strict JSON format:
   "required_days_to_reach_goal": int,               // only if goal is not realistic
   "recommended_completion_date": "YYYY-MM-DD"       // only if goal is not realistic
 }
-
-data
+"""
+data_for_goal = """
 - Goal: "Trip to Japan"
 - Total amount needed: 1000€
 - Target date: 2025-06-02 (format: YYYY-MM-DD)
@@ -1900,14 +1900,14 @@ data = """
   }
 """
 
-def goal_promt(first_promt):
+def goal_promt(first_promt, data_for_goal):
   client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
     api_key="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"
   )
   completion = client.chat.completions.create(
     model="nvidia/llama-3.3-nemotron-super-49b-v1",
-    messages=[{"role": "system", "content": first_promt}],
+    messages=[{"role": "system", "content": first_promt + data_for_goal}],
     temperature=0.6,
     top_p=0.95,
     max_tokens=4096,
