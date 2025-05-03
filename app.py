@@ -127,8 +127,8 @@ class GoalSummaryWindow(QWidget):
         self.setStyleSheet("background-color: #000000;")
 
         layout = QVBoxLayout()
-        layout.setContentsMargins(20, 24, 20, 24)
-        layout.setSpacing(3)  # 🔧 Tighter spacing between all widgets
+        layout.setContentsMargins(20, 26, 20, 26)
+        layout.setSpacing(8)  # 🔧 Tighter spacing between all widgets
 
         # 🔝 Top-left Title
         title = QLabel("Your Goal")
@@ -143,17 +143,30 @@ class GoalSummaryWindow(QWidget):
             f"💰 Amount: €{amount}"
         ]))
 
-        # 💬 Challenge Section
-        layout.addWidget(self.create_section_title("Current Challenge"))
-        layout.addWidget(self.create_dark_card([
-            "💡 Skip coffee today and save €5!"
-        ]))
+        layout.addLayout(self.section_with_card(
+            "Current Challenge",
+            self.create_dark_card([
+                "💡 Skip coffee today and save €5!"
+            ])
+        ))
 
-        # 📊 Progress Section (with header)
-        layout.addWidget(self.create_section_title("Progress"))
-        layout.addWidget(self.create_progress_and_saved_row())
+        layout.addLayout(self.section_with_card(
+            "Progress",
+            self.create_progress_and_saved_row()
+        ))
 
         self.setLayout(layout)
+
+    def section_with_card(self, title_text, card_widget):
+        section = QVBoxLayout()
+        section.setSpacing(0)  # 🔧 No space between title and card
+
+        title = QLabel(title_text)
+        title.setStyleSheet("color: white; font-size: 16px; font-weight: bold;")
+        section.addWidget(title)
+        section.addWidget(card_widget)
+
+        return section
 
     def create_section_title(self, text):
         label = QLabel(text)
@@ -168,7 +181,7 @@ class GoalSummaryWindow(QWidget):
         """)
         layout = QVBoxLayout()
         layout.setContentsMargins(16, 12, 16, 12)
-        layout.setSpacing(6)
+        layout.setSpacing(3)
         for text in lines:
             label = QLabel(text)
             label.setStyleSheet("color: white; font-size: 15px; font-weight: bold;")
@@ -186,7 +199,7 @@ class GoalSummaryWindow(QWidget):
 
         layout = QHBoxLayout()
         layout.setContentsMargins(16, 12, 16, 12)
-        layout.setSpacing(12)
+        layout.setSpacing(4)
 
         # 📉 Left: Progress bar
         progress_bar = QProgressBar()
@@ -275,6 +288,8 @@ class ResultWindow(QWidget):
         self.notification.show_notification("🎉 Goal created successfully!")
         
         self.goal_window.show()
+        QMessageBox.information(self, "Confirmed", "✅ Your goal has been accepted!")
+
         self.close()
 
 class NotificationWidget(QLabel):
